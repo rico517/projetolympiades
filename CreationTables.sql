@@ -31,6 +31,13 @@ CREATE TABLE Utilisateurs (
 CREATE TABLE Equipes (
   id INT(3) PRIMARY KEY AUTO_INCREMENT,
   nom VARCHAR(15) NOT NULL,
+  score INT(3) NOT NULL,
+  idSection INT(2)
+);
+
+CREATE TABLE Section (
+  id INT(2) PRIMARY KEY AUTO_INCREMENT,
+  nom VARCHAR(15) NOT NULL,
   scoreTotal INT(3) NOT NULL,
   couleur VARCHAR(10) NOT NULL
 );
