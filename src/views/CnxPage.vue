@@ -1,3 +1,6 @@
+<script setup>
+</script>
+
 <template>
 <body>
     <div id="container">
@@ -20,7 +23,7 @@
                     <div id="checkbox"><img src="../assets/img/check.png"></div>
                     <p>Rester connecter ?</p>
                 </div>
-                <button id="seConnecter">Se connecter</button>
+                <button id="seConnecter" @click="logIn">Se connecter</button>
             </div>
         </div>
     </div>
@@ -28,6 +31,17 @@
 <!-- <router-link to="/score-admin"><button>Page gestion score admin</button></router-link>
 <router-link to="/score-user"><button>Page gestion score user</button></router-link> -->
 </template>
+
+<script>
+export default {
+    methods: {
+        logIn(){
+            // Envoyer l'utilisateur vers la page de score version admin
+            this.$router.push("/score-admin");
+        }
+    }
+}
+</script>
 
 <style scoped>
 #container{

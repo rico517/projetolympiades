@@ -3,7 +3,13 @@ Autheur : Eric Girard
 */
 
 export class Jeu {
-    constructor(id, libelle, regles, nbPoints, typeJeu) {
+    _id : number;
+    _libelle : string;
+    _regles : string;
+    _nbPoints : number;
+    _typeJeu : string;
+
+    constructor(id:number, libelle:string, regles:string, nbPoints:number, typeJeu:string) {
         this._id = id;
         this._libelle = libelle;
         this._regles = regles;
@@ -17,7 +23,7 @@ export class Jeu {
     }
 
     // Setter pour l'ID
-    set id(nouvelId) {
+    set id(nouvelId:number) {
         this._id = nouvelId;
     }
 
@@ -27,7 +33,7 @@ export class Jeu {
     }
 
     // Setter pour le libellé
-    set libelle(nouveauLibelle) {
+    set libelle(nouveauLibelle:string) {
         this._libelle = nouveauLibelle;
     }
 
@@ -37,7 +43,7 @@ export class Jeu {
     }
 
     // Setter pour les règles
-    set regles(nouvellesRegles) {
+    set regles(nouvellesRegles:string) {
         this._regles = nouvellesRegles;
     }
 
@@ -47,7 +53,7 @@ export class Jeu {
     }
 
     // Setter pour le nombre de points
-    set nbPoints(nouveauNbPoints) {
+    set nbPoints(nouveauNbPoints:number) {
         this._nbPoints = nouveauNbPoints;
     }
 
@@ -57,7 +63,7 @@ export class Jeu {
     }
 
     // Setter pour le type de jeu
-    set typeJeu(nouveauTypeJeu) {
+    set typeJeu(nouveauTypeJeu:string) {
         this._typeJeu = nouveauTypeJeu;
     }
 }
