@@ -5,7 +5,6 @@ var con = mysql.createConnection({
   user: "root",
   password: "",
   database: "projetolympiadls"
-
 });
 
 con.connect(function(err) {
@@ -16,3 +15,5 @@ con.connect(function(err) {
       console.log("Result: " + result);
     });
 });
+
+
