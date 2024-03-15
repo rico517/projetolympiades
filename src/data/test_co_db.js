@@ -1,5 +1,7 @@
-import mysql from 'mysql';
+const express = require('express');
+const mysql = require('mysql');
 
+const app = express();
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -15,5 +17,6 @@ con.connect(function(err) {
       console.log("Result: " + result);
     });
 });
+app.use(express.json());
 
-
+module.exports = app;
