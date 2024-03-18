@@ -1,10 +1,10 @@
-module.exports = app => {
-    const equpies = require("../controllers/equipes.controller.js");
-  
-    var router = require("express").Router();
+import {equipes} from "../controllers/equipes";
+import {express} from "express";
 
-    
-    router.get("/equipes", equpies.recupToutesLesEquipes);
+export default app => {
+    var router = express.Router();
+
+    router.get("/equipes", equipes.recupToutesLesEquipes);
 
     app.use('/api', router);
 
