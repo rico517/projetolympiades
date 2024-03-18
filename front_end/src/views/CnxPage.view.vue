@@ -1,8 +1,10 @@
 <script setup>
+import HeaderComponent from '@components/Header.component.vue'
 </script>
 
 <template>
 <body>
+    <HeaderComponent/>
     <div id="container">
         <div id="containerLogo">
             <img src="../assets/img/logo_olympiaDLS.png">
