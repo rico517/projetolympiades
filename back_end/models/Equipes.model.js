@@ -1,4 +1,4 @@
-import sql from "./connection.js";
+import sql from "./Connection.js";
 import { Equipe } from "../classes/Equipe.js";
 
 export default Equipe.getToutesLesEquipes = (result) => {
