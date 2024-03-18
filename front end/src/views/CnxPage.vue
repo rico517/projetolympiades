@@ -5,18 +5,18 @@
 <body>
     <div id="container">
         <div id="containerLogo">
-            <!-- <img src="../assets/img/logo_olympiaDLS.png"> -->
+            <img src="../assets/img/logo_olympiaDLS.png">
         </div>
         <div id="loginHolder">
             <h1>Connexion</h1>
             <div id="inputLoginHolder">
                 <div class="inputTextHolder">
                     <p>Identifiant :</p>
-                    <input type="text"></input>
+                    <input type="text"/>
                 </div>
                 <div class="inputTextHolder">
                     <p>Mot de passe :</p>
-                    <input type="text"></input>
+                    <input type="text"/>
                 </div>
                 
                 <div id="inputCheckboxHolder">
@@ -36,7 +36,6 @@
 export default {
     methods: {
         logIn(){
-            testCnx();
             // Envoyer l'utilisateur vers la page de score version admin
             this.$router.push("/score-admin");
         }
