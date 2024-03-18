@@ -5,7 +5,7 @@
 <body>
     <div id="container">
         <div id="containerLogo">
-            <!-- <img src="../assets/img/logo_olympiaDLS.png"> -->
+            <img src="../assets/img/logo_olympiaDLS.png">
         </div>
         <div id="loginHolder">
             <h1>Connexion</h1>
@@ -18,11 +18,10 @@
                     <p>Mot de passe :</p>
                     <input type="text"/>
                 </div>
-                
-                <div id="inputCheckboxHolder">
+                <!-- <div id="inputCheckboxHolder">
                     <div id="checkbox"><img src="../assets/img/check.png"></div>
                     <p>Rester connecter ?</p>
-                </div>
+                </div> -->
                 <button id="seConnecter" @click="logIn">Se connecter</button>
             </div>
         </div>
@@ -36,12 +35,13 @@
 export default {
     methods: {
         logIn(){
-            testCnx();
             // Envoyer l'utilisateur vers la page de score version admin
             this.$router.push("/score-admin");
         }
     }
 }
+
+
 </script>
 
 <style scoped>
@@ -119,7 +119,7 @@ input[type="text"]:focus{
 }
 
 
-#inputCheckboxHolder{
+/* #inputCheckboxHolder{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -145,7 +145,7 @@ input[type="text"]:focus{
 
 #checkbox img{
     height:100%;
-}
+} */
 
 
 #seConnecter{
@@ -156,8 +156,10 @@ input[type="text"]:focus{
     background: linear-gradient(to right,#8c8e8f,#383a40);
     color:#EFEFEF;
     font-size:2.5rem;
+    box-shadow: none;
 }
 #seConnecter:hover{
     cursor: pointer;
+    background: linear-gradient(to bottom,#8c8e8f,#383a40);
 }
 </style>../../../back end/data/DAO

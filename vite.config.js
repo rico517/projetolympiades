@@ -10,11 +10,17 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@': fileURLToPath(new URL('/', import.meta.url)),
+      // front
       '@components': '/front_end/src/assets/components',
-      '@controllers': '/back_end/controllers',
-      '@models': '/back_end/models',
       '@views': '/front_end/src/views',
+
+
+
+      // back
+      '@classes': '/back_end/classes',
+      '@controllers': '/back_end/controllers',
+      '@models': '/back_end/models'
     }
   }
 })
