@@ -1,9 +1,9 @@
 /*
 Autheur : Julien Demogue
 */
-import {Jeu} from './Jeu';
+import Jeu from './Jeu';
 
-export class Planning{
+export default class Planning{
     // Constructeur de la classe
     constructor(id,horaire,jeu){
         this._id = id;

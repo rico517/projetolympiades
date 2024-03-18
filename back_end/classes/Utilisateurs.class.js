@@ -2,7 +2,7 @@
 Autheur : Julien Demogue
 */
 
-export class Utilisateur{
+export default class Utilisateur{
     // Constructeur de la classe
     constructor(id,identifiant,mdp,niveauCnx) {
         this._id = id;

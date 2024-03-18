@@ -2,7 +2,7 @@
 Autheur : Eric Girard
 */
 
-export class Jeu {
+export default class Jeu {
     constructor(id, libelle, regles, nbPoints, typeJeu) {
         this._id = id;
         this._libelle = libelle;

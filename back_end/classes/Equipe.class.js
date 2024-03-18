@@ -2,7 +2,7 @@
 Autheur : Eric Girard
 */
 
-export class Equipe {
+export default class Equipe {
     constructor(id, nom, score, section) {
         this._id = id
         this._nom = nom;

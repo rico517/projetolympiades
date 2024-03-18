@@ -2,7 +2,7 @@
 Autheur : Julien Demogue
 */
 
-export class Section{
+export default class Section{
     // Constructeur de la classe
     constructor(id,nom,scoreTotal,couleur){
         this._id = id;
