@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 
 import equipes from "./controllers/Equipes.controller.js";
-import jeux from "./controllers/Jeux.controller.js";
+import jeux from "./controllers/Jeux.controllers.js";
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 var router = express.Router();
 app.use('/api', router);
 router.get("/equipes", equipes);
-router.get("/jeux", jeux);
+router.get("/jeux/:id", jeux);
 
 // simple route
 app.get("/", (req, res) => {

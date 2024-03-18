@@ -1,3 +1,7 @@
+-- Creer la base de donnees
+CREATE DATABASE IF NOT EXISTS projetolympiadls
+CHARACTER SET utf8 COLLATE utf8mb3_general_ci;
+
 -- Supprimer les tables existantes (si elles existent)
 DROP TABLE IF EXISTS Jeux;
 DROP TABLE IF EXISTS Planning;
