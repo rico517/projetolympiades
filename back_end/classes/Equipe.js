@@ -2,15 +2,10 @@
 Autheur : Eric Girard
 */
 
-import { Section } from "./Section";
-
 export class Equipe {
-    _id: number;
-    _nom: string;
-    _score: number;
-    _section: Section;
 
-    constructor(id:number, nom:string, score:number, section:Section) {
+
+    constructor(id, nom, score, section) {
         this._id = id
         this._nom = nom;
         this._score = score;
@@ -23,7 +18,7 @@ export class Equipe {
     }
 
     // Setter pour l'id
-    set id(nouveauId:number) {
+    set id(nouveauId) {
         this._id = nouveauId;
     }
 
@@ -33,7 +28,7 @@ export class Equipe {
     }
 
     // Setter pour le nom
-    set nom(nouveauNom:string) {
+    set nom(nouveauNom) {
         this._nom = nouveauNom;
     }
 
@@ -43,7 +38,7 @@ export class Equipe {
     }
 
     // Setter pour le score total
-    set score(nouveauScore:number) {
+    set score(nouveauScore) {
         this._score = nouveauScore;
     }
 
@@ -53,7 +48,7 @@ export class Equipe {
     }
 
     // Setter pour la section
-    set section(nouvelleSection:Section) {
+    set section(nouvelleSection) {
         this._section = nouvelleSection;
     }
 }

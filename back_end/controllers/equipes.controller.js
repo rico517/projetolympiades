@@ -1,6 +1,6 @@
-const equipes = require("../models/equipes.model.js");
+import equipes from "../models/equipes.model.js";
 
-exports.recupToutesLesEquipes = (req,res) =>{
+export default (req,res) =>{
     const nom = req.query.nom;
 
   equipes.getToutesLesEquipes(nom, (err, data) => {

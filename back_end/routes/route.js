@@ -1,5 +1,5 @@
-import {equipes} from "../controllers/equipes";
-import {express} from "express";
+import equipes from "../controllers/equipes.controller.js";
+import express from "express";
 
 export default app => {
     var router = express.Router();
