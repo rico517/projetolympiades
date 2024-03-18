@@ -17,13 +17,9 @@ Equipe.getToutesLesEquipes = (result) => {
           return;
         }
     
-        if (res.length) {
-          console.log("found tutorial: ", res[0]);
-          result(null, res[0]);
+          console.log("found tutorial: ", res);
+          result(null, res);
           return;
-        }
-    
-        // not found Tutorial with the id
-        result({ kind: "not_found" }, null);
+        
       });
 };

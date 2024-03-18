@@ -1,6 +1,6 @@
 const equipes = require("../models/equipes.modele.js");
 
-exports.getToutesLesEquipes = (req) =>{
+exports.recupToutesLesEquipes = (req,res) =>{
     const nom = req.query.nom;
 
   equipes.getToutesLesEquipes(nom, (err, data) => {
