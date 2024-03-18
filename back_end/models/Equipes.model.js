@@ -5,13 +5,19 @@ export function getToutesLesEquipes() {
     sql.query(`SELECT * FROM equipes`, (err, result) => {
         if (err) {
           console.log("error: ", err);
-          result(err, null);
-          return;
         }
-    
-          console.log("found tutorial: ", result);
-          
-          
-        
+        else{
+          var listFinal = [];
+          //console.log("found tutorial: ", result);
+          result.forEach(element => {
+            var equipe=new Equipe();
+            equipe.setId(element[0]);
+            equipe.setNom(element[1])
+            equipe.setScore(element[2])
+          });
+
+
+
+        }
       });
 };
