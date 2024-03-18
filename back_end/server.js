@@ -2,6 +2,8 @@ import express from "express";
 
 import cors from "cors";
 
+import equipes from "./controllers/Equipes.controller.js";
+
 const app = express();
 
 var corsOptions = {
@@ -16,12 +18,18 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
+var router = express.Router();
+app.use('/api', router);
+router.get("/equipes", equipes);
+
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "back-end de projetOlympiaDls" });
 });
 
-import './routes/route.js';
+//import app2 from './routes/route.js';
+
+//app.use(app2);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

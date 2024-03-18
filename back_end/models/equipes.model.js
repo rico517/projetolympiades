@@ -1,5 +1,5 @@
 import sql from "./connection.js";
-import { Equipe } from "@classes/Equipe.js";
+import { Equipe } from "../classes/Equipe.js";
 
 export default Equipe.getToutesLesEquipes = (result) => {
     sql.query(`SELECT * FROM equipes`, (err, res) => {
@@ -11,7 +11,7 @@ export default Equipe.getToutesLesEquipes = (result) => {
     
           console.log("found tutorial: ", res);
           result(null, res);
-          return;
+          
         
       });
 };
