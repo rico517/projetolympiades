@@ -1,3 +1,5 @@
+npm install dependency
+
 vite
 mysql
 cors
