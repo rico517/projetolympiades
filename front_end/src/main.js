@@ -9,3 +9,5 @@ const app = createApp(App)
 app.use(router)
 
 app.mount('#app')
+
+var currentPage = 'accueil'; // 'accueil' / 'jeux' / 'equipes' / 'planning' / 'classement'

@@ -1,4 +1,5 @@
 <script setup>
+
 </script>
 
 <template>
@@ -6,6 +7,7 @@
     <div id="container">
       <img src="../img/logo_olympiaDLS.png" />
       <div>{{ heureSysteme }}</div>
+      <div>{{ currentPage }}</div>
     </div>
   </div>
 </template>
@@ -60,5 +62,29 @@ export default {
     color : white;
     font-size: 3rem;
     font-weight: bold;
+  }
+
+  @media all and(orientation : portrait){
+    #header{
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      width:100%;
+      height:3vh;
+      background-color: #e7191f;
+    }
+    
+    
+    #container div{
+      display:none;
+    }
+    #container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width:70%;
+      height:100%;
+      display: flex;
+  }
   }
 </style>
