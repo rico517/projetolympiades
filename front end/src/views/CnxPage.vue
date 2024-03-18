@@ -1,6 +1,4 @@
 <script setup>
-import mysql from "mysql";
-import {testCnx} from "../data/DAO";
 </script>
 
 <template>
@@ -39,9 +37,8 @@ export default {
     methods: {
         logIn(){
             testCnx();
-
             // Envoyer l'utilisateur vers la page de score version admin
-            // this.$router.push("/score-admin");
+            this.$router.push("/score-admin");
         }
     }
 }
@@ -163,4 +160,4 @@ input[type="text"]:focus{
 #seConnecter:hover{
     cursor: pointer;
 }
-</style>
+</style>../../../back end/data/DAO
