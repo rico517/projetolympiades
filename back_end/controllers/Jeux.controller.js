@@ -1,4 +1,4 @@
-import {getUnJeu} from "../models/Jeu.model.js";
+import {getUnJeu} from "../models/Jeux.model.js";
 
 export default (req, res) => {
     getUnJeu((err, data) => {

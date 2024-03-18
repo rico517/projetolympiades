@@ -24,6 +24,7 @@ export function getUnJeu(id) {
             console.log("Le jeu d'id " + id + " n'existe pas");
             return null;
         }
+        console.log("resultats: ", result);
         // Si un resultat est trouve, envoyer un objet de type Jeu avec les parametres du resultat
         return new Jeu(
             result[0].id,

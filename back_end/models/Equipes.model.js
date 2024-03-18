@@ -1,5 +1,5 @@
 import sql from "../data/Connection.js";
-import { Equipe } from "../classes/Equipe.js";
+import Equipe from "../classes/Equipe.class.js";
 
 export function getToutesLesEquipes() {
     sql.query(`SELECT * FROM equipes`, (err, result) => {
@@ -8,16 +8,13 @@ export function getToutesLesEquipes() {
         }
         else{
           var listFinal = [];
-          //console.log("found tutorial: ", result);
+          console.log("found tutorial: ", result);
           result.forEach(element => {
             var equipe=new Equipe();
-            equipe.setId(element[0]);
-            equipe.setNom(element[1])
-            equipe.setScore(element[2])
+            equipe.id = element[0];
+            equipe.nom = element[1];
+            equipe.score = element[2];
           });
-
-
-
         }
       });
 };
