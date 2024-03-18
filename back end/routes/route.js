@@ -4,8 +4,8 @@ module.exports = app => {
     var router = require("express").Router();
 
     
-    router.get("/", equpies.getToutesLesEquipes);
+    router.get("/equipes", equpies.recupToutesLesEquipes);
 
-    app.use('/api/equipes', router);
+    app.use('/api', router);
 
 };
