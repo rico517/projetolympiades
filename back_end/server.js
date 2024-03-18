@@ -1,5 +1,6 @@
-const express = require("express");
-const cors = require("cors");
+import express from "express";
+
+import cors from "cors";
 
 const app = express();
 
@@ -20,7 +21,7 @@ app.get("/", (req, res) => {
   res.json({ message: "back-end de projetOlympiaDls" });
 });
 
-require("./routes/route.js")(app);
+import './routes/route.js';
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

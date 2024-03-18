@@ -2,7 +2,7 @@
 Autheur : Eric Girard
 */
 
-import {Section} from './Section';
+import { Section } from "./Section";
 
 export class Equipe {
     _id: number;
