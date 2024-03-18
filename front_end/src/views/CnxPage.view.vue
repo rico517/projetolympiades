@@ -12,11 +12,11 @@
             <div id="inputLoginHolder">
                 <div class="inputTextHolder">
                     <p>Identifiant :</p>
-                    <input type="text"></input>
+                    <input type="text"/>
                 </div>
                 <div class="inputTextHolder">
                     <p>Mot de passe :</p>
-                    <input type="text"></input>
+                    <input type="text"/>
                 </div>
                 
                 <div id="inputCheckboxHolder">
