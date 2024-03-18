@@ -1,21 +1,15 @@
 import sql from "../data/Connection.js";
-import { Equipe } from "../classes/Equipe.js";
+import  Equipe  from "../classes/Equipe.class.js";
 
-export function getToutesLesEquipes() {
+export function getToutesLesEquipes(res) {
     sql.query(`SELECT * FROM equipes`, (err, result) => {
         if (err) {
           console.log("error: ", err);
+          res(null,err)
         }
         else{
-          var listFinal = [];
-          //console.log("found tutorial: ", result);
-          result.forEach(element => {
-            var equipe=new Equipe();
-            equipe.setId(element[0]);
-            equipe.setNom(element[1])
-            equipe.setScore(element[2])
-          });
-
+          
+          res(null,result)
 
 
         }

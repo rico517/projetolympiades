@@ -1,7 +1,7 @@
-import {getUnJeu} from "../models/Jeu.model.js";
+import {getUnJeu} from "../models/Jeux.model.js";
 
 export default (req, res) => {
-    getUnJeu((err, data) => {
+    getUnJeu(req.params.id, (err, data) => {
         if (err)
             res.status(500).send({
                 message:
