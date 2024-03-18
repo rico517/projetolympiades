@@ -15,8 +15,6 @@ export default defineConfig({
       '@components': '/front_end/src/assets/components',
       '@views': '/front_end/src/views',
 
-
-
       // back
       '@classes': '/back_end/classes',
       '@controllers': '/back_end/controllers',

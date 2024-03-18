@@ -5,6 +5,7 @@
 <template>
   <div id="header">
     <div id="container">
+      <button id="btnDropDown"></button>
       <img src="../img/logo_olympiaDLS.png" />
       <div>{{ heureSysteme }}</div>
       <div>{{ currentPage }}</div>
@@ -38,7 +39,7 @@ export default {
 </script>
 
 <style scoped>
-
+  
   #header{
     display: flex;
     justify-content: center;
@@ -54,6 +55,9 @@ export default {
     width:95%;
     height:100%;
     display: flex;
+  }
+  #container button{
+    display: none;
   }
   #container img{
     height:95%;
@@ -73,11 +77,6 @@ export default {
       height:3vh;
       background-color: #e7191f;
     }
-    
-    
-    #container div{
-      display:none;
-    }
     #container{
       display: flex;
       justify-content: space-between;
@@ -85,6 +84,12 @@ export default {
       width:70%;
       height:100%;
       display: flex;
-  }
+    }
+    #container button{
+      display:inline-block;
+    }
+    #container div{
+      display:none;
+    }
   }
 </style>

@@ -1,5 +1,4 @@
 <script setup>
-import HeaderComponent from '@components/Header.component.vue'
 </script>
 
 <template>
@@ -29,8 +28,8 @@ import HeaderComponent from '@components/Header.component.vue'
         </div>
     </div>
 </body>
-<!-- <router-link to="/score-admin"><button>Page gestion score admin</button></router-link>
-<router-link to="/score-user"><button>Page gestion score user</button></router-link> -->
+<!--  <router-link to="/score-admin"><button>Page gestion score admin</button></router-link> -->
+<!-- <router-link :to="{name: 'score-user'}"><button>Page gestion score user</button></router-link> -->
 </template>
 
 <script>
