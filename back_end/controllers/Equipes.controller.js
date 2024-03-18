@@ -1,8 +1,8 @@
-import equipes from "../models/Equipes.model.js";
+import {getToutesLesEquipes} from "../models/Equipes.model.js";
 
 export default (req,res) =>{
 
-  equipes.getToutesLesEquipes( (err, data) => {
+  getToutesLesEquipes( (err, data) => {
     if (err)
       res.status(500).send({
         message:
