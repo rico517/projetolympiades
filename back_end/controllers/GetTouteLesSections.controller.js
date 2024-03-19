@@ -3,6 +3,8 @@
 @authors : 
 Eric Girard
 Julien Demogue
+
+@link - http://localhost:8080/api/GetTouteLesSections
 */
 
 import {getTouteLesSections} from "../models/Sections.model.js";
@@ -12,7 +14,7 @@ export default (req,res) =>{
     if (err)
       res.status(500).send({
         message:
-          err.message || "Problemes dans la recuperation des sections."
+          err || "Problemes dans la recuperation des sections."
       });
     else res.send(data);
   });

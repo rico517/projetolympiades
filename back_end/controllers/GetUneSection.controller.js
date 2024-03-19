@@ -3,6 +3,8 @@
 @authors : 
 Eric Girard
 Julien Demogue
+
+@link - http://localhost:8080/api/GetUneSection/1
 */
 
 import {getUneSection} from "../models/Sections.model.js";
@@ -12,7 +14,7 @@ export default (req,res) =>{
     if (err)
       res.status(500).send({
         message:
-          err.message || "Problemes dans la recuperation de la section."
+          err || "Problemes dans la recuperation de la section."
       });
     else res.send(data);
   });

@@ -18,18 +18,19 @@ export function getUnUtilisateur(identifiant,mdp,res) {
     sql.query(`SELECT * FROM utilisateurs WHERE identifiant = '${identifiant}' AND mdp = '${mdp}'`, (err, result) =>{
         // Cas d'erreur dans l'execution de la requete
         if (err) {
-            console.log("erreur dans la requete : ", err);
-            res(err,null);
+            let msg = "erreur dans la requete : " +  err;
+            res(msg,null);
             return;
         }
         // Si aucun resultat n'est trouve
         else if (result.length === 0) {
-            console.log("Le utilisateur n'existe pas");
-            res(err,null);
+            let msg = "L'utilisateur recherche n'existe pas";
+            res(msg,null);
             return;
         }
         else{
-        // Renvoyer le utilisateur correspondant
-        res(null,result);}
+            // Renvoyer le utilisateur correspondant
+            res(null,result);
+        }
     })
 }

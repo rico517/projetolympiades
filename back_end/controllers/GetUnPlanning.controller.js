@@ -3,6 +3,8 @@
 @authors : 
 Eric Girard
 Julien Demogue
+
+@link - http://localhost:8080/api/GetUnPlanning/1
 */
 
 import {getUnPlanning} from "../models/Planning.model.js";
@@ -12,7 +14,7 @@ export default (req,res) =>{
     if (err)
       res.status(500).send({
         message:
-          err.message || "Problemes dans la recuperation d'un planning."
+          err || "Problemes dans la recuperation d'un planning."
       });
     else res.send(data);
   });

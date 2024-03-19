@@ -17,18 +17,20 @@ export function getUneSection(id,res) {
     sql.query(`SELECT * FROM sections WHERE id = ${id}`, (err, result) =>{
         // Cas d'erreur dans l'execution de la requete
         if (err) {
-            console.log("erreur dans la requete : ", err);
-            res(err,null);
+            let msg = "erreur dans la requete : " +  err;
+            res(msg,null);
             return;
         }
         // Si aucun resultat n'est trouve
         else if (result.length === 0) {
-            console.log("La section d'id " + id + " n'existe pas");
+            let msg = "La section d'id " + id + " n'existe pas";
+            res(msg,null);
             return;
         }
         else{
-        // Renvoyer la section a l'id correspondant
-        res(null,result);}
+            // Renvoyer la section a l'id correspondant
+            res(null,result);
+        }
     })
 }
 
@@ -41,8 +43,8 @@ export function getTouteLesSections(res) {
     sql.query(`SELECT * FROM sections`, (err, result) => {
         // Cas d'erreur dans l'execution de la requete
         if(err) {
-            console.log("erreur dans la requete : ", err);
-            res(err,null);
+            let msg = "erreur dans la requete : " +  err;
+            res(msg,null);
             return;
         }
         else{
