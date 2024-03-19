@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 
 import equipes from "./controllers/Equipes.controller.js";
-import jeux from "./controllers/Jeux.controllers.js";
+import jeux from "./controllers/Jeux.controller.js";
 
 const app = express();
 
