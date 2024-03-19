@@ -14,7 +14,7 @@ import sql from "../data/Connection.js";
 */
 export function getUnPlanning(id,res) {
     // Execute la requete SQL
-    sql.query(`SELECT * FROM plannings WHERE id = ${id}`, (err, result) =>{
+    sql.query(`SELECT plannings.*,horaires.heure FROM plannings WHERE id = ${id} JOIN horaires ON horaires.id = plannings.idHoraire`, (err, result) =>{
         // Cas d'erreur dans l'execution de la requete
         if (err) {
             let msg = "erreur dans la requete : " +  err;
@@ -40,7 +40,7 @@ export function getUnPlanning(id,res) {
 */
 export function getTousLesPlannings(res) {
     // Execute la requete SQL
-    sql.query(`SELECT * FROM plannings`, (err, result) => {
+    sql.query(`SELECT plannings.*,horaires.heure FROM plannings JOIN horaires ON horaires.id = plannings.idHoraire`, (err, result) => {
         // Cas d'erreur dans l'execution de la requete
         if(err) {
             let msg = "erreur dans la requete : " +  err;
