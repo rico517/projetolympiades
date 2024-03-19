@@ -14,6 +14,7 @@ import GetTousLesJeux from "../controllers/GetTousLesJeux.controller.js";
 
 import GetUnPlanning from "../controllers/GetUnPlanning.controller.js";
 import GetTousLesPlannings from "../controllers/GetTousLesPlannings.controller.js";
+import GetPlanningDeJeu from "../controllers/GetPlanningDeJeu.controller.js";
 
 import GetUneSection from "../controllers/GetUneSection.controller.js";
 import GetTouteLesSections from "../controllers/GetTouteLesSections.controller.js";
@@ -36,6 +37,7 @@ router.get("/GetTousLesJeux", GetTousLesJeux);
 // Routes concernant les plannings
 router.get("/GetUnPlanning/:id", GetUnPlanning);
 router.get("/GetTousLesPlannings", GetTousLesPlannings);
+router.get("/GetPlanningDeJeu/:idJeu", GetPlanningDeJeu);
 
 // Routes concernant les sections
 router.get("/GetUneSection/:id", GetUneSection);

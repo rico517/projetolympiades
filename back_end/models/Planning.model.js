@@ -14,7 +14,7 @@ import sql from "../data/Connection.js";
 */
 export function getUnPlanning(id,res) {
     // Execute la requete SQL
-    sql.query(`SELECT plannings.*,horaires.heure FROM plannings WHERE id = ${id} JOIN horaires ON horaires.id = plannings.idHoraire`, (err, result) =>{
+    sql.query(`SELECT plannings.*,horaires.heure FROM plannings JOIN horaires ON horaires.id = plannings.idHoraire WHERE plannings.id = ${id}`, (err, result) =>{
         // Cas d'erreur dans l'execution de la requete
         if (err) {
             let msg = "erreur dans la requete : " +  err;
@@ -46,6 +46,31 @@ export function getTousLesPlannings(res) {
             let msg = "erreur dans la requete : " +  err;
             res(msg,null);
             return;
+        }
+        else{
+            // Renvoyer l'ensemble des plannings de la base de donnees
+            res(null,result);
+        }
+    })
+}
+
+/*
+@description - Renvoie l'ensemble des plannings de la base de donnees
+@param {number} idJeu - L'ID du jeu dont on veut obtenir le planning
+@return {Array} result - L'ensemble des plannings associes a un jeu
+*/
+export function getPlanningDeJeu(idJeu,res) {
+    // Execute la requete SQL
+    sql.query(`SELECT plannings.*,horaires.heure FROM plannings JOIN horaires ON horaires.id = plannings.idHoraire WHERE plannings.idJeu = ${idJeu}`, (err, result) => {
+        // Cas d'erreur dans l'execution de la requete
+        if(err) {
+            let msg = "erreur dans la requete : " +  err;
+            res(msg,null);
+            return;
+        }
+        else if(result.length === 0){
+            let msg = "Aucun planning n'est associee au jeu d'id " + idJeu;
+            res(msg,null);
         }
         else{
             // Renvoyer l'ensemble des plannings de la base de donnees
