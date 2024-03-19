@@ -1,3 +1,12 @@
+/*
+@description - Controlleur de la methode getUnJeu
+@authors : 
+Eric Girard
+Julien Demogue
+
+@link - http://localhost:8080/api/GetUnJeu/1
+*/
+
 import {getUnJeu} from "../models/Jeux.model.js";
 
 export default (req, res) => {
@@ -5,7 +14,7 @@ export default (req, res) => {
         if (err)
             res.status(500).send({
                 message:
-                    err.message || "Problemes dans la recuperation du jeu."
+                    err || "Problemes dans la recuperation du jeu."
             });
         else res.send(data);
     });

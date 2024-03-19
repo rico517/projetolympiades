@@ -1,16 +1,18 @@
 -- Creer la base de donnees
-CREATE DATABASE IF NOT EXISTS projetolympiadls
+DROP DATABASE IF EXISTS `projetolympiadls`;
+CREATE DATABASE IF NOT EXISTS `projetolympiadls`
 CHARACTER SET utf8 COLLATE utf8mb3_general_ci;
 
 USE `projetolympiadls`;
 
 -- Supprimer les tables existantes (si elles existent)
 DROP TABLE IF EXISTS Jeux;
-DROP TABLE IF EXISTS Planning;
+DROP TABLE IF EXISTS Plannings;
 DROP TABLE IF EXISTS Utilisateurs;
 DROP TABLE IF EXISTS Equipes;
 DROP TABLE IF EXISTS Pool;
 Drop TABLE IF EXISTS Sections;
+Drop TABLE IF EXISTS Horaires;
 
 -- Créer les nouvelles tables
 CREATE TABLE Jeux (
@@ -21,11 +23,12 @@ CREATE TABLE Jeux (
   typeJeu VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE Planning (
+CREATE TABLE Plannings (
   id INT(2) PRIMARY KEY AUTO_INCREMENT,
-  horaire DATE NOT NULL,
-  idJeu INT(2),
-  FOREIGN KEY (idJeu) REFERENCES jeux(id)
+  idHoraire INT(2) NOT NULL,
+  idJeu INT(2) NOT NULL,
+  FOREIGN KEY (idJeu) REFERENCES jeux(id),
+  FOREIGN KEY (idHoraire) REFERENCES horaire(id)
 );
 
 CREATE TABLE Utilisateurs (
@@ -52,8 +55,13 @@ CREATE TABLE Sections (
 CREATE TABLE Pool (
   idPlanning INT(2),
   idEquipe INT(3),
-  FOREIGN KEY (idPlanning) REFERENCES planning(id),
+  FOREIGN KEY (idPlanning) REFERENCES plannings(id),
   FOREIGN KEY (idEquipe) REFERENCES equipes(id)
+);
+
+CREATE TABLE Horaires (
+  id INT(2) PRIMARY KEY AUTO_INCREMENT,
+  heure TIME NOT NULL
 );
 
 -- Remplissage de de données
@@ -62,12 +70,12 @@ INSERT INTO Jeux (id, libelle, regles, nbPoints, typeJeu) VALUES
 (2, 'Jeu2', 'Description jeu2.', 20, '1v1'),
 (3, 'Jeu3', 'Description jeu3.', 30, '1v1v1v1');
 
-INSERT INTO planning (id, horaire, idJeu) VALUES
-(1, '2024-03-10', 1),
-(2, '2024-03-10', 2),
-(3, '2024-03-10', 3),
-(4, '2024-03-10', 1),
-(5, '2024-03-10', 2);
+INSERT INTO plannings (id, idHoraire, idJeu) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 2, 1),
+(5, 4, 2);
 
 INSERT INTO Utilisateurs (id, identifiant, mdp, niveauCnx) VALUES
 (1, 'admin', 'admin123', 2),
@@ -92,4 +100,11 @@ INSERT INTO Sections (id, nom, scoreTotal, couleur) VALUES
 (1, 'Equipe 1', 0, 'Rouge'),
 (2, 'Equipe 2', 0, 'Bleu'),
 (3, 'Equpipe 3', 0, 'Vert');
+
+INSERT INTO Horaires (id, heure) VALUES
+(1, '10:00:00'),
+(2, '11:00:00'),
+(3, '12:00:00'),
+(4, '13:00:00'),
+(5, '14:00:00');
 
