@@ -22,6 +22,7 @@ export function getUnJeu(id,res) {
         // Si aucun resultat n'est trouve
         else if (result.length === 0) {
             console.log("Le jeu d'id " + id + " n'existe pas");
+            res(err,null);
             return;
         }
         else{
