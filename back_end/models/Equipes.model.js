@@ -1,5 +1,5 @@
 /*
-@description : Modele traitant les liaisons avec la base de donees concernant les equipes.
+@description - Modele traitant les liaisons avec la base de donnees concernant les equipes.
 @authors : 
 Eric Girard
 Julien Demogue
@@ -10,7 +10,7 @@ import sql from "../data/Connection.js";
 /*
 @description - Renvoie une equipe a partir d'un ID
 @param {number} id - L'ID de l'equipe a retourner
-@return result - L'equipe correspondant à l'ID
+@return {Object} result - L'equipe correspondant à l'ID
 */
 export function getUneEquipe(id,res) {
   // Execute la requete SQL
@@ -34,7 +34,7 @@ export function getUneEquipe(id,res) {
 
 /*
 @description - Renvoie l'ensemble des equipes de la base de donnees
-@return result - L'ensemble des equipes de la base de donnees
+@return {Array} result - L'ensemble des equipes de la base de donnees
 */
 export function getToutesLesEquipes(res) {
   // Execute la requete SQL

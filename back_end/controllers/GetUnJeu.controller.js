@@ -1,3 +1,10 @@
+/*
+@description - Controlleur de la methode getUnJeu
+@authors : 
+Eric Girard
+Julien Demogue
+*/
+
 import {getUnJeu} from "../models/Jeux.model.js";
 
 export default (req, res) => {

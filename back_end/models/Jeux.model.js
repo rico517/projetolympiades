@@ -1,6 +1,8 @@
 /*
-@description : Modele traitant les liaisons avec la base de donees concernant les jeux.
-@author : Julien Demogue
+@description - Modele traitant les liaisons avec la base de donnees concernant les jeux.
+@authors : 
+Eric Girard
+Julien Demogue
 */
 
 import sql from "../data/Connection.js";
@@ -8,7 +10,7 @@ import sql from "../data/Connection.js";
 /*
 @description - Renvoie un jeu a partir d'un ID
 @param {number} id - L'ID du jeu a retourner
-@return result - Le jeu correspondant à l'ID
+@return {Object} result - Le jeu correspondant à l'ID
 */
 export function getUnJeu(id,res) {
     // Execute la requete SQL
@@ -33,7 +35,7 @@ export function getUnJeu(id,res) {
 
 /*
 @description - Renvoie l'ensemble des jeux de la base de donnees
-@return result - L'ensemble des jeux de la base de donnees
+@return {Array} result - L'ensemble des jeux de la base de donnees
 */
 export function getTousLesJeux(res) {
     // Execute la requete SQL

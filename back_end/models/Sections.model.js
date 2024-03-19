@@ -1,6 +1,8 @@
 /*
-@description : Modele traitant les liaisons avec la base de donees concernant les sections.
-@author : Julien Demogue
+@description - Modele traitant les liaisons avec la base de donnees concernant les sections.
+@authors : 
+Eric Girard
+Julien Demogue
 */
 
 import sql from "../data/Connection.js";
@@ -8,7 +10,7 @@ import sql from "../data/Connection.js";
 /*
 @description - Renvoie une section a partir d'un ID
 @param {number} id - L'ID de la section a retourner
-@return result - La section correspondant à l'ID
+@return {Object} result - La section correspondant à l'ID
 */
 export function getUneSection(id,res) {
     // Execute la requete SQL
@@ -32,7 +34,7 @@ export function getUneSection(id,res) {
 
 /*
 @description - Renvoie l'ensemble des sections de la base de donnees
-@return result - L'ensemble des sections de la base de donnees
+@return {Array} result - L'ensemble des sections de la base de donnees
 */
 export function getTouteLesSections(res) {
     // Execute la requete SQL

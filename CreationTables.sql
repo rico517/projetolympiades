@@ -1,12 +1,13 @@
 -- Creer la base de donnees
-CREATE DATABASE IF NOT EXISTS projetolympiadls
+DROP DATABASE IF EXISTS `projetolympiadls`;
+CREATE DATABASE IF NOT EXISTS `projetolympiadls`
 CHARACTER SET utf8 COLLATE utf8mb3_general_ci;
 
 USE `projetolympiadls`;
 
 -- Supprimer les tables existantes (si elles existent)
 DROP TABLE IF EXISTS Jeux;
-DROP TABLE IF EXISTS Planning;
+DROP TABLE IF EXISTS Plannings;
 DROP TABLE IF EXISTS Utilisateurs;
 DROP TABLE IF EXISTS Equipes;
 DROP TABLE IF EXISTS Pool;
@@ -21,7 +22,7 @@ CREATE TABLE Jeux (
   typeJeu VARCHAR(20) NOT NULL
 );
 
-CREATE TABLE Planning (
+CREATE TABLE Plannings (
   id INT(2) PRIMARY KEY AUTO_INCREMENT,
   horaire DATE NOT NULL,
   idJeu INT(2),
@@ -52,7 +53,7 @@ CREATE TABLE Sections (
 CREATE TABLE Pool (
   idPlanning INT(2),
   idEquipe INT(3),
-  FOREIGN KEY (idPlanning) REFERENCES planning(id),
+  FOREIGN KEY (idPlanning) REFERENCES plannings(id),
   FOREIGN KEY (idEquipe) REFERENCES equipes(id)
 );
 
@@ -62,7 +63,7 @@ INSERT INTO Jeux (id, libelle, regles, nbPoints, typeJeu) VALUES
 (2, 'Jeu2', 'Description jeu2.', 20, '1v1'),
 (3, 'Jeu3', 'Description jeu3.', 30, '1v1v1v1');
 
-INSERT INTO planning (id, horaire, idJeu) VALUES
+INSERT INTO plannings (id, horaire, idJeu) VALUES
 (1, '2024-03-10', 1),
 (2, '2024-03-10', 2),
 (3, '2024-03-10', 3),
