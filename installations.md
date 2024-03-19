@@ -6,3 +6,4 @@ cors
 vue
 vue-router
 express
+axios
