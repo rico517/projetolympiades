@@ -13,8 +13,11 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
-// parse requests of content-type - application/json
+// Perser les donnees recues en JSON
 app.use(express.json());
+
+// Formatage des donnees recues en JSON
+app.set('json spaces', 2)
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
