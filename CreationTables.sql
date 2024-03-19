@@ -61,7 +61,7 @@ CREATE TABLE Pool (
 
 CREATE TABLE Horaires (
   id INT(2) PRIMARY KEY AUTO_INCREMENT,
-  heure DATE NOT NULL
+  heure TIME NOT NULL
 );
 
 -- Remplissage de de données
@@ -102,9 +102,9 @@ INSERT INTO Sections (id, nom, scoreTotal, couleur) VALUES
 (3, 'Equpipe 3', 0, 'Vert');
 
 INSERT INTO Horaires (id, heure) VALUES
-(1, '2024-03-10'),
-(2, '2024-03-10'),
-(3, '2024-03-10'),
-(4, '2024-03-10'),
-(5, '2024-03-10');
+(1, '10:00:00'),
+(2, '11:00:00'),
+(3, '12:00:00'),
+(4, '13:00:00'),
+(5, '14:00:00');
 
