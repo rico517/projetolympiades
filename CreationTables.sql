@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS Planning;
 DROP TABLE IF EXISTS Utilisateurs;
 DROP TABLE IF EXISTS Equipes;
 DROP TABLE IF EXISTS Pool;
-Drop TABLE IF EXISTS Section;
+Drop TABLE IF EXISTS Sections;
 
 -- Créer les nouvelles tables
 CREATE TABLE Jeux (
@@ -37,10 +37,10 @@ CREATE TABLE Equipes (
   id INT(3) PRIMARY KEY AUTO_INCREMENT,
   nom VARCHAR(15) NOT NULL,
   score INT(3) NOT NULL,
-  idSection INT(2)
+  idSections INT(2)
 );
 
-CREATE TABLE Section (
+CREATE TABLE Sections (
   id INT(2) PRIMARY KEY AUTO_INCREMENT,
   nom VARCHAR(15) NOT NULL,
   scoreTotal INT(3) NOT NULL,
@@ -72,7 +72,7 @@ INSERT INTO Utilisateurs (id, identifiant, mdp, niveauCnx) VALUES
 (2, 'jeu1', 'user123', 1),
 (3, 'jeu2', 'user123', 1);
 
-INSERT INTO Equipes (id, nom, score, idSection) VALUES
+INSERT INTO Equipes (id, nom, score, idSections) VALUES
 (1, 'Equipe 1', 0, 1),
 (2, 'Equipe 2', 0, 1),
 (3, 'Equipe 3', 0, 3),
@@ -86,7 +86,7 @@ INSERT INTO Pool (idPlanning, idEquipe) VALUES
 (3, 3),
 (4, 3);
 
-INSERT INTO Section (id, nom, scoreTotal, couleur) VALUES
+INSERT INTO Sections (id, nom, scoreTotal, couleur) VALUES
 (1, 'Equipe 1', 0, 'Rouge'),
 (2, 'Equipe 2', 0, 'Bleu'),
 (3, 'Equpipe 3', 0, 'Vert');

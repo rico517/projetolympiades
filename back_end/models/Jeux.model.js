@@ -1,14 +1,14 @@
 /*
-description : Modele traitant les liaisons avec la base de donees concernant les jeux.
-auteur : Julien Demogue
+@description : Modele traitant les liaisons avec la base de donees concernant les jeux.
+@author : Julien Demogue
 */
 
 import sql from "../data/Connection.js";
 
 /*
-Renvoie un jeu a partir d'un ID
+@description - Renvoie un jeu a partir d'un ID
 @param {number} id - L'ID du jeu a retourner
-@return {Jeu} - Le jeu correspondant à l'ID
+@return result - Le jeu correspondant à l'ID
 */
 export function getUnJeu(id,res) {
     // Execute la requete SQL
@@ -22,9 +22,30 @@ export function getUnJeu(id,res) {
         // Si aucun resultat n'est trouve
         else if (result.length === 0) {
             console.log("Le jeu d'id " + id + " n'existe pas");
+            return;
         }
         else{
-        // Si un resultat est trouve, envoyer un objet de type Jeu avec les parametres du resultat
+        // Renvoyer le jeu a l'id correspondant
         res(null,result);}
+    })
+}
+
+/*
+@description - Renvoie l'ensemble des jeux de la base de donnees
+@return result - L'ensemble des jeux de la base de donnees
+*/
+export function getTousLesJeux(res) {
+    // Execute la requete SQL
+    sql.query(`SELECT * FROM jeux`, (err, result) => {
+        // Cas d'erreur dans l'execution de la requete
+        if(err) {
+            console.log("erreur dans la requete : ", err);
+            res(err,null);
+            return;
+        }
+        else{
+            // Renvoyer l'ensemble des jeux de la base de donnees
+            res(null,result);
+        }
     })
 }
