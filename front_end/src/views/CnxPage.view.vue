@@ -1,4 +1,5 @@
 <script setup>
+import TestBDDComponent from '../assets/components/TestBDD.component.vue';
 </script>
 
 <template>
@@ -27,6 +28,7 @@
             </div>
         </div>
     </div>
+    <TestBDDComponent/>
 </body>
 <!--  <router-link to="/score-admin"><button>Page gestion score admin</button></router-link> -->
 <!-- <router-link :to="{name: 'score-user'}"><button>Page gestion score user</button></router-link> -->

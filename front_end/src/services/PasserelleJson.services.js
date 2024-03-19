@@ -2,7 +2,7 @@ import http from "../Http-common.js";
 
 class DataService{
     getToutesLesEquipes(){
-        return http.get('/equipes');
+        return http.get("/equipes");
     }
 }
 
