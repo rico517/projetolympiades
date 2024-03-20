@@ -20,11 +20,10 @@ import Utilisateur from '../classes/Utilisateurs.class.ts';
                 </div>
                 <div class="inputTextHolder">
                     <p>Mot de passe :</p>
-                    <input type="password" v-model="mdp"/>
-                </div>
-                <div id="inputCheckboxHolder">
-                    <div id="checkbox"><img src="../assets/img/oeilOuvert.png"></div>
-                    <p>Afficher le mot de passe</p>
+                    <div id="passwordHolder">
+                        <input type="password" v-model="mdp"/>
+                        <img src="../assets/img/oeilOuvert.png"/>
+                    </div>
                 </div>
                 <div id="errorLabel">
                     {{ errMsg }}
@@ -84,6 +83,8 @@ export default {
 
 
 </script>
+
+
 
 <style scoped>
 #container{
@@ -147,7 +148,7 @@ export default {
 }
 
 
-input[type="text"],input[type="password"]{
+input[type="text"]{
     width:90%;
     height:65%;
     border:none;
@@ -155,7 +156,19 @@ input[type="text"],input[type="password"]{
     font-weight: normal;
     margin-left: 5%;
 }
-input[type="text"]:focus,input[type="password"]:focus{
+input[type="text"]:focus{
+    outline:none;
+}
+
+input[type="password"]{
+    width:89%;
+    height:100%;
+    border:none;
+    font-size: 2.5vh;
+    font-weight: normal;
+}
+
+input[type="password"]:focus{
     outline:none;
 }
 
@@ -165,31 +178,24 @@ input[type="text"]:focus,input[type="password"]:focus{
     font-weight: bold;
 }
 
-
-#inputCheckboxHolder{
+#passwordHolder{
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    width:70%;
-    height:10%;
-    font-weight: bold;
+    width:95%;
+    height:65%;
+    margin-left: 5%;
+    
 }
 
-#inputCheckboxHolder p{
-    font-size: 1.6rem;
+#passwordHolder img{
+    width:10%;
+    border:none;
+    margin-left:0.5%;
+    margin-right:0.5%;
+    user-select: none;
 }
-
-#checkbox{
-    height:70%;
-    aspect-ratio: 1/1;
-}
-
-#checkbox:hover{
+#passwordHolder img:hover{
     cursor: pointer;
-}
-
-#checkbox img{
-    height:100%;
 }
 
 

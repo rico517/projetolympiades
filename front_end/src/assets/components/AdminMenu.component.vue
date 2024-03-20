@@ -49,7 +49,6 @@
         align-items: center;
         width:100%;
         height:55%;
-        
     }
     .bhBtns{
         font-size:3vh;
