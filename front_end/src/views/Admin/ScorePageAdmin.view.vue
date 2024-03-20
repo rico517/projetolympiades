@@ -1,30 +1,55 @@
 <script setup>
 import HeaderComponent from '../../assets/components/Header.component.vue';
+import AdminMenuComponent from '../../assets/components/AdminMenu.component.vue';
 /*
 Appel du header
 Appel de AdminMenuComponent "PC" lorsque l'ecran est en mode PC
 Appel AdminScoreComponent
 Appel de AdminMenuComponent "TEL" lorsque l'ecran est en mode TEL
-*/
+*/    
 </script>
 
 <template>
     <HeaderComponent/>
     <div id="contentContainer">
-        <AdminMenuComponent class="pc" />
+        <AdminMenuComponent v-if="isLandscape"/>
         <AdminScoreComponent/>
     </div>
-    <AdminMenuComponent class="tel"/>
+    <AdminMenuComponent v-if="isPortrait"/>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            isPortrait: false,
+            isLandscape: false
+        };
+    },
+    mounted() {
+        this.windowOrientation();
+        window.addEventListener('resize', this.windowOrientation);
+    },
+    methods:{
+        windowOrientation(){
+            if(window.matchMedia("(orientation: landscape)").matches){
+                // alert(window.matchMedia("(orientation: landscape)").matches);
+                this.isLandscape = true;
+                this.isPortrait = false;
+            }else{
+                this.isLandscape = false;
+                this.isPortrait = true;
+            }
+        }
+    }
+}
+</script>
 
 <style scoped>
     /* Mode PC */
     #contentContainer{
         width:100%;
         height:92vh;
-    }
-    .tel{
-        display:none;
     }
 
     /* Mode Tel */
@@ -33,11 +58,7 @@ Appel de AdminMenuComponent "TEL" lorsque l'ecran est en mode TEL
             width:100%;
             height:84vh;
         }
-        .pc{
-            display:none;
-        }
-        .tel{
-            display:block;
-        }
     }
 </style>
+
+

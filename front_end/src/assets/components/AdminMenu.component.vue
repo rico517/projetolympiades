@@ -5,42 +5,18 @@
 <template>
   <div id="menuContainer">
     <div id="buttonsHolder">
-        <button>Accueil</button>
-        <button>Jeux</button>
-        <button>Equipes</button>
-        <button>Planning</button>
-        <button>Classement</button>
+        <button class="bhBtns">Accueil</button>
+        <button class="bhBtns">Jeux</button>
+        <button class="bhBtns">Equipes</button>
+        <button class="bhBtns">Planning</button>
+        <button class="bhBtns">Classement</button>
     </div>
-    <button>Déconnexion</button>
+    <button class="mcBtn">Déconnexion</button>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      heureSysteme: ''
-    };
-  },
-  mounted() {
-    // Mettre à jour l'heure initiale
-    this.updateHeure();
-    // Mettre à jour l'heure toutes les 5 secondes
-    setInterval(this.updateHeure, 5000);
-  },
-  methods: {
-    updateHeure() {
-      const date = new Date();
-      const heures = date.getHours().toString().padStart(2, '0');
-      const minutes = date.getMinutes().toString().padStart(2, '0');
-      const secondes = date.getSeconds().toString().padStart(2, '0');
-      this.heureSysteme = `${heures}:${minutes}`;
-    }
-  }
-};
-</script>
-
 <style scoped>
+
     #menuContainer{
         display: flex;
         flex-direction: column;
@@ -48,16 +24,74 @@ export default {
         align-items: center;
         width:17%;
         height:100%;
+        background-color: whitesmoke;
+        font-size:2vh;
     }
-    #menuContainer button{
-
+    .mcBtn{
+        font-size:3vh;
+        border:none;
+        width:90%;
+        height:8%;
+        background-color: #FF000088;
+        border-radius:10px;
+    }
+    .mcBtn:hover{
+        cursor: pointer;
+        background-color: #FF0000AA;
     }
     #buttonsHolder{
         
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width:100%;
+        height:55%;
     }
-    #buttonsHolder button{
-
+    .bhBtns{
+        font-size:3vh;
+        border:none;
+        height:10%;
+        width:90%;
+        text-align: start;
+    }
+    .bhBtns .active{
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    .bhBtns:hover{
+        cursor: pointer;
+        background-color: #b1b1b1;
     }
     @media all and (orientation: portrait){
+        #menuContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width:100%;
+            height:8vh;
+            background-color: whitesmoke;
+        }
+        .mcBtn{
+           display: none; 
+        }
+        #buttonsHolder{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width:100%;
+            height:100%;
+        }
+        .bhBtns{
+            font-size:3vh;
+            border:none;
+            height:95%;
+            width:15%;
+            text-align: start;
+        }
+        .bhBtns .active{
+
+        } 
     }
 </style>
