@@ -22,6 +22,7 @@
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        min-width:160px;
         width:17%;
         height:100%;
         background-color: whitesmoke;
@@ -33,27 +34,32 @@
         width:90%;
         height:8%;
         background-color: #FF000088;
-        border-radius:10px;
+        border-radius:0.5em;
+        margin-bottom: 0.75em;
+        transition:0.3s ease;
     }
     .mcBtn:hover{
         cursor: pointer;
         background-color: #FF0000AA;
     }
-    #buttonsHolder{
-        
+    #buttonsHolder{  
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         width:100%;
         height:55%;
+        
     }
     .bhBtns{
         font-size:3vh;
         border:none;
-        height:10%;
+        height:15%;
         width:90%;
         text-align: start;
+        padding-left:5%;
+        border-radius:0.5em;
+        transition:0.3s ease;
     }
     .bhBtns .active{
         font-weight: bold;
@@ -61,7 +67,7 @@
     }
     .bhBtns:hover{
         cursor: pointer;
-        background-color: #b1b1b1;
+        background-color: #dfdfdf;
     }
     @media all and (orientation: portrait){
         #menuContainer{

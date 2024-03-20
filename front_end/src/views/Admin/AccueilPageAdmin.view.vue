@@ -3,9 +3,9 @@ import HeaderComponent from '../../assets/components/Header.component.vue';
 import AdminMenuComponent from '../../assets/components/AdminMenu.component.vue';
 /*
 Appel du header
-Appel de AdminMenuComponent "PC" lorsque l'ecran est en mode PC
+Appel de AdminMenuComponent "landscape" lorsque l'ecran est en mode PC
 Appel AdminScoreComponent
-Appel de AdminMenuComponent "TEL" lorsque l'ecran est en mode TEL
+Appel de AdminMenuComponent "portrait" lorsque l'ecran est en mode TEL
 */    
 </script>
 
@@ -51,7 +51,6 @@ export default {
         width:100%;
         height:92vh;
     }
-
     /* Mode Tel */
     @media all and (orientation: portrait){
         #contentContainer{

@@ -67,11 +67,11 @@ export default {
                 const newUtilisateur = new Utilisateur(donnees.id,this.pseudo,this.mdp,donnees.niveauCnx);
                 // Envoyer l'utilisateur vers la page de score version admin si le niveau de connexion est 2
                 if(newUtilisateur.niveauCnx == 2){
-                    this.$router.push("/score-admin");
+                    this.$router.push("/accueil-admin");
                 }
                 // Envoyer l'utilisateur vers la page de score version user si le niveau de connexion est 1
                 else if (newUtilisateur.niveauCnx == 1){
-                    this.$router.push("/score-user");
+                    this.$router.push("/accueil-user");
                 }
             })
             .catch(e => {
