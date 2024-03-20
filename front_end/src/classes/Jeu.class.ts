@@ -2,7 +2,7 @@
 Autheur : Eric Girard
 */
 
-export class Jeu {
+export default class Jeu {
     _id : number;
     _libelle : string;
     _regles : string;

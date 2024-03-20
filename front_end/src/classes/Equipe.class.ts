@@ -2,9 +2,9 @@
 Autheur : Eric Girard
 */
 
-import { Section } from "./Section";
+import Section from "./Section.class";
 
-export class Equipe {
+export default class Equipe {
     _id: number;
     _nom: string;
     _score: number;
