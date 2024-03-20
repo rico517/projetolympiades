@@ -5,10 +5,9 @@
 <template>
   <div id="header">
     <div id="container">
-      <button id="btnDropDown"></button>
+      <button id="btnDropDown"><img src="../img/menu_icon.svg"></button>
       <img src="../img/logo_olympiaDLS.png" />
       <div>{{ heureSysteme }}</div>
-      <div>{{ currentPage }}</div>
     </div>
   </div>
 </template>
@@ -44,8 +43,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    width:100%;
-    height:6vh;
+    width:100vw;
+    height:8vh;
     background-color: #e7191f;
   }
   #container{
@@ -59,21 +58,25 @@ export default {
   #container button{
     display: none;
   }
+  #container button img{
+    height:100%;
+  }
   #container img{
     height:95%;
   }
   #container div{
+    width:auto;
     color : white;
     font-size: 3rem;
     font-weight: bold;
   }
 
-  @media all and(orientation : portrait){
+  @media all and (orientation: portrait){
     #header{
       display: flex;
       justify-content: start;
       align-items: center;
-      width:100%;
+      width:100vw;
       height:3vh;
       background-color: #e7191f;
     }
@@ -87,6 +90,8 @@ export default {
     }
     #container button{
       display:inline-block;
+      height:70%;
+      aspect-ratio: 1/1;
     }
     #container div{
       display:none;
