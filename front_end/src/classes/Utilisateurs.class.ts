@@ -2,7 +2,7 @@
 Autheur : Julien Demogue
 */
 
-export class Utilisateur{
+export default class Utilisateur{
     _id: number;
     _identifiant: string;
     _mdp: string;

@@ -1,9 +1,9 @@
 /*
 Autheur : Julien Demogue
 */
-import {Jeu} from './Jeu';
+import Jeu from './Jeu.class';
 
-export class Planning{
+export default class Planning{
     _id : number;
     _horaire: string;
     _jeu: Jeu;

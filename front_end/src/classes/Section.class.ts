@@ -2,7 +2,7 @@
 Autheur : Julien Demogue
 */
 
-export class Section{
+export default class Section{
     _id: number;
     _nom: string;
     _scoreTotal: number;
