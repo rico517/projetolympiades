@@ -1,5 +1,7 @@
 <script setup>
 import TestBDDComponent from '../assets/components/TestBDD.component.vue';
+import DataServices from "../services/PasserelleJson.services";
+import Utilisateur from '../classes/Utilisateurs.class.ts';
 </script>
 
 <template>
@@ -14,11 +16,11 @@ import TestBDDComponent from '../assets/components/TestBDD.component.vue';
             <div id="inputLoginHolder">
                 <div class="inputTextHolder">
                     <p>Identifiant :</p>
-                    <input type="text"/>
+                    <input type="text" v-model="pseudo"/>
                 </div>
                 <div class="inputTextHolder">
                     <p>Mot de passe :</p>
-                    <input type="text"/>
+                    <input type="text" v-model="mdp"/>
                 </div>
                 <!-- <div id="inputCheckboxHolder">
                     <div id="checkbox"><img src="../assets/img/check.png"></div>
@@ -28,7 +30,6 @@ import TestBDDComponent from '../assets/components/TestBDD.component.vue';
             </div>
         </div>
     </div>
-    <TestBDDComponent/>
 </body>
 <!--  <router-link to="/score-admin"><button>Page gestion score admin</button></router-link> -->
 <!-- <router-link :to="{name: 'score-user'}"><button>Page gestion score user</button></router-link> -->
@@ -38,8 +39,24 @@ import TestBDDComponent from '../assets/components/TestBDD.component.vue';
 export default {
     methods: {
         logIn(){
+            // Recuperer l'utilisateur 
+            DataServices.getUnUtilisateur(this.pseudo,this.mdp)
+            .then((response) => {
+                var donnees = response.data[0];
+                const newUtilisateur = new Utilisateur(donnees.id,this.pseudo,this.mdp,donnees.niveauCnx);
+                if(newUtilisateur.niveauCnx == 2){
+                    this.$router.push("/score-admin");
+                }
+                else if (newUtilisateur.niveauCnx == 1){
+                    this.$router.push("/score-user");
+                }
+            })
+            .catch(e => {
+                console.log(e);
+            });
+
             // Envoyer l'utilisateur vers la page de score version admin
-            this.$router.push("/score-admin");
+            // this.$router.push("/score-admin");
         }
     }
 }

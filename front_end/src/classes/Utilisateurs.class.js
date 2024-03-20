@@ -29,5 +29,5 @@ export default class Utilisateur{
     // Recuperer le niveau de connexion
     get niveauCnx(){return this.niveauCnx;}
     // Modifier le niveau de connexion
-    set niveauCnx(nouveauNiveauCnx){this.id = nouveauNiveauCnx;}
+    set niveauCnx(nouveauNiveauCnx){this.niveauCnx = nouveauNiveauCnx;}
 }
