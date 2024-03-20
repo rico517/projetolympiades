@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import TestBDDComponent from '../assets/components/TestBDD.component.vue';
 import DataServices from "../services/PasserelleJson.services";
 import Utilisateur from '../classes/Utilisateurs.class.ts';
@@ -20,12 +20,15 @@ import Utilisateur from '../classes/Utilisateurs.class.ts';
                 </div>
                 <div class="inputTextHolder">
                     <p>Mot de passe :</p>
-                    <input type="text" v-model="mdp"/>
+                    <input type="password" v-model="mdp"/>
                 </div>
-                <!-- <div id="inputCheckboxHolder">
-                    <div id="checkbox"><img src="../assets/img/check.png"></div>
-                    <p>Rester connecter ?</p>
-                </div> -->
+                <div id="inputCheckboxHolder">
+                    <div id="checkbox"><img src="../assets/img/oeilOuvert.png"></div>
+                    <p>Afficher le mot de passe</p>
+                </div>
+                <div id="errorLabel">
+                    {{ errMsg }}
+                </div>
                 <button id="seConnecter" @click="logIn">Se connecter</button>
             </div>
         </div>
@@ -35,28 +38,46 @@ import Utilisateur from '../classes/Utilisateurs.class.ts';
 <!-- <router-link :to="{name: 'score-user'}"><button>Page gestion score user</button></router-link> -->
 </template>
 
-<script>
+<script lang="ts">
 export default {
+    data() {
+        return {
+            mdp: "",
+            pseudo: "",
+            errMsg: "",
+        }
+    },
     methods: {
         logIn(){
+            // Erreur si l'identifiant n'est pas entre
+            if(this.pseudo == ""){
+                this.errMsg = "Veuillez saisir un identifiant";
+                return;
+            }
+            // erreur si le mot de passe n'est pas entre
+            if(this.mdp == ""){
+                this.errMsg = "Veuillez saisir un mot de passe";
+                return;
+            }
+
             // Recuperer l'utilisateur 
             DataServices.getUnUtilisateur(this.pseudo,this.mdp)
             .then((response) => {
                 var donnees = response.data[0];
                 const newUtilisateur = new Utilisateur(donnees.id,this.pseudo,this.mdp,donnees.niveauCnx);
+                // Envoyer l'utilisateur vers la page de score version admin si le niveau de connexion est 2
                 if(newUtilisateur.niveauCnx == 2){
                     this.$router.push("/score-admin");
                 }
+                // Envoyer l'utilisateur vers la page de score version user si le niveau de connexion est 1
                 else if (newUtilisateur.niveauCnx == 1){
                     this.$router.push("/score-user");
                 }
             })
             .catch(e => {
-                console.log(e);
+                this.errMsg = "Identifiant ou mot de passe incorrect";
+                return;
             });
-
-            // Envoyer l'utilisateur vers la page de score version admin
-            // this.$router.push("/score-admin");
         }
     }
 }
@@ -126,37 +147,41 @@ export default {
 }
 
 
-input[type="text"]{
+input[type="text"],input[type="password"]{
     width:90%;
     height:65%;
     border:none;
-    font-size: 3.5vh;
+    font-size: 2.5vh;
     font-weight: normal;
     margin-left: 5%;
 }
-input[type="text"]:focus{
+input[type="text"]:focus,input[type="password"]:focus{
     outline:none;
 }
 
+#errorLabel{
+    color:red;
+    font-size: medium;
+    font-weight: bold;
+}
 
-/* #inputCheckboxHolder{
+
+#inputCheckboxHolder{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width:60%;
+    width:70%;
     height:10%;
     font-weight: bold;
 }
 
 #inputCheckboxHolder p{
-    font-size: 1.75rem;
+    font-size: 1.6rem;
 }
 
 #checkbox{
     height:70%;
     aspect-ratio: 1/1;
-    border:0.25vh #555555 solid;
-    border-radius: 15%;
 }
 
 #checkbox:hover{
@@ -165,7 +190,7 @@ input[type="text"]:focus{
 
 #checkbox img{
     height:100%;
-} */
+}
 
 
 #seConnecter{
@@ -182,4 +207,4 @@ input[type="text"]:focus{
     cursor: pointer;
     background: linear-gradient(to bottom,#8c8e8f,#383a40);
 }
-</style>../../../back end/data/DAO
+</style>
