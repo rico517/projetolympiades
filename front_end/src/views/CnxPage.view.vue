@@ -20,9 +20,10 @@ import Utilisateur from '../classes/Utilisateurs.class.ts';
                 </div>
                 <div class="inputTextHolder">
                     <p>Mot de passe :</p>
-                    <div id="passwordHolder">
-                        <input type="password" v-model="mdp"/>
-                        <img src="../assets/img/oeilOuvert.png"/>
+                    <div id="passwordHolder" :class="{ 'no-margin': this.mdpVisible }">
+                        <input :type="this.mdpVisible ? 'text' : 'password'" v-model="mdp"/>
+                        <img @click="changerVisibiliteMdp" src="../assets/img/oeilOuvert.png" v-if="this.mdpVisible"/>
+                        <img @click="changerVisibiliteMdp" src="../assets/img/oeilFerme.png" v-if="!this.mdpVisible"/>
                     </div>
                 </div>
                 <div id="errorLabel">
@@ -44,6 +45,7 @@ export default {
             mdp: "",
             pseudo: "",
             errMsg: "",
+            mdpVisible: false,
         }
     },
     methods: {
@@ -77,6 +79,9 @@ export default {
                 this.errMsg = "Identifiant ou mot de passe incorrect";
                 return;
             });
+        },
+        changerVisibiliteMdp(){
+            this.mdpVisible = !this.mdpVisible;
         }
     }
 }
@@ -185,14 +190,21 @@ input[type="password"]:focus{
     width:95%;
     height:65%;
     margin-left: 5%;
-    
+}
+
+#passwordHolder.no-margin {
+  margin-left: 0;
+}
+
+#passwordHolder[type="password"]{
+    margin-left: 5%;
 }
 
 #passwordHolder img{
     width:10%;
     border:none;
     margin-left:0.5%;
-    margin-right:0.5%;
+    margin-right:3%;
     user-select: none;
 }
 #passwordHolder img:hover{
