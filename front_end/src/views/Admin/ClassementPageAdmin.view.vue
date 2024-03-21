@@ -1,4 +1,5 @@
 <script setup>
+import TypePages from '../../enums/TypePages.enum';
 import HeaderComponent from '../../assets/components/Header.component.vue';
 import AdminMenuComponent from '../../assets/components/AdminMenu.component.vue';
 /*
@@ -12,10 +13,10 @@ Appel de AdminMenuComponent "portrait" lorsque l'ecran est en mode TEL
 <template>
     <HeaderComponent/>
     <div id="contentContainer">
-        <AdminMenuComponent currentPage="classement" v-if="isLandscape"/>
+        <AdminMenuComponent :currentPage=TypePages.classement v-if="isLandscape"/>
         <AdminScoreComponent/>
     </div>
-    <AdminMenuComponent currentPage="classement" v-if="isPortrait"/>
+    <AdminMenuComponent :currentPage=TypePages.classement v-if="isPortrait"/>
 </template>
 
 <script>
