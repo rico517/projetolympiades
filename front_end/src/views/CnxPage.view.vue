@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NomPages from "../enums/NomPages.enum";
 import DataServices from "../services/PasserelleJson.services";
-import Utilisateur from '../classes/Utilisateurs.class.ts';
+import Utilisateur from '../classes/Utilisateurs.class';
 </script>
 
 <template>
