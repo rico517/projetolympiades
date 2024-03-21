@@ -196,10 +196,6 @@ input[type="password"]:focus{
   margin-left: 0;
 }
 
-#passwordHolder[type="password"]{
-    margin-left: 5%;
-}
-
 #passwordHolder img{
     width:10%;
     border:none;
