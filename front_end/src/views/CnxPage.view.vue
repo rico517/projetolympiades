@@ -174,8 +174,9 @@ input[type="password"]:focus{
 
 #errorLabel{
     color:red;
-    font-size: medium;
+    font-size: 2.4em;
     font-weight: bold;
+    text-align:center;
 }
 
 #passwordHolder{

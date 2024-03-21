@@ -5,15 +5,33 @@
 <template>
   <div id="menuContainer">
     <div id="buttonsHolder">
-        <button class="bhBtns">Accueil</button>
-        <button class="bhBtns">Jeux</button>
-        <button class="bhBtns">Equipes</button>
-        <button class="bhBtns">Planning</button>
-        <button class="bhBtns">Classement</button>
+        <router-link :to="{name: 'accueil-admin'}" id='accueil' class="bhBtns">Accueil</router-link> 
+        <router-link :to="{name: 'jeux-admin'}" id='jeux' class="bhBtns">Jeux</router-link>
+        <router-link :to="{name: 'equipes-admin'}" id='equipes' class="bhBtns">Equipes</router-link>
+        <router-link :to="{name: 'planning-admin'}" id='planning' class="bhBtns">Planning</router-link>
+        <router-link :to="{name: 'classement-admin'}" id='classement' class="bhBtns">Classement</router-link>
     </div>
     <button class="mcBtn">Déconnexion</button>
   </div>
 </template>
+
+<script>
+export default {
+    props : 
+    {
+        currentPage:{
+            type:String,
+            required:true
+        }
+    },
+    mounted(){
+        const btnActive = document.getElementById(this.currentPage);
+        btnActive.classList.remove('bhBtns');
+        btnActive.classList.add('active');
+    }
+}
+
+</script>
 
 <style scoped>
 
@@ -51,18 +69,32 @@
         height:55%;
     }
     .bhBtns{
+        display:flex;
+        justify-content: start;
+        align-items: center;
         font-size:3vh;
         border:none;
         height:15%;
         width:90%;
-        text-align: start;
         padding-left:5%;
         border-radius:0.5em;
         transition:0.3s ease;
+        background-color: #dfdfdf55;
+        text-decoration: none;
     }
-    .bhBtns .active{
+    .active{
+        display:flex;
+        justify-content: start;
+        align-items: center;
+        font-size:3vh;
+        border:none;
+        height:15%;
+        width:90%;
+        padding-left:5%;
+        border-radius:0.5em;
         font-weight: bold;
-        text-decoration: underline;
+        text-decoration: none;
+        box-shadow:inset 0 0 0.4em rgba(0, 0, 0, 0.2);
     }
     .bhBtns:hover{
         cursor: pointer;
@@ -95,8 +127,8 @@
             width:15%;
             text-align: start;
         }
-        .bhBtns .active{
+        /* .bhBtns .active{
 
-        } 
+        }  */
     }
 </style>

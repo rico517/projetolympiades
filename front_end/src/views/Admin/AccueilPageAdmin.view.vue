@@ -1,6 +1,7 @@
 <script setup>
 import HeaderComponent from '../../assets/components/Header.component.vue';
 import AdminMenuComponent from '../../assets/components/AdminMenu.component.vue';
+import AdminAccueilComponent from '../../assets/components/AdminAccueil.component.vue';
 /*
 Appel du header
 Appel de AdminMenuComponent "landscape" lorsque l'ecran est en mode PC
@@ -12,10 +13,10 @@ Appel de AdminMenuComponent "portrait" lorsque l'ecran est en mode TEL
 <template>
     <HeaderComponent/>
     <div id="contentContainer">
-        <AdminMenuComponent v-if="isLandscape"/>
-        <AdminScoreComponent/>
+        <AdminMenuComponent currentPage="accueil" v-if="isLandscape"/>
+        <AdminAccueilComponent/>
     </div>
-    <AdminMenuComponent v-if="isPortrait"/>
+    <AdminMenuComponent currentPage="accueil" v-if="isPortrait"/>
 </template>
 
 <script>
@@ -48,6 +49,8 @@ export default {
 <style scoped>
     /* Mode PC */
     #contentContainer{
+        display: flex;
+        flex-direction: row;
         width:100%;
         height:92vh;
     }

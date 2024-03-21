@@ -12,10 +12,10 @@ Appel de AdminMenuComponent "portrait" lorsque l'ecran est en mode TEL
 <template>
     <HeaderComponent/>
     <div id="contentContainer">
-        <AdminMenuComponent v-if="isLandscape"/>
+        <AdminMenuComponent currentPage="equipes" v-if="isLandscape"/>
         <AdminScoreComponent/>
     </div>
-    <AdminMenuComponent v-if="isPortrait"/>
+    <AdminMenuComponent currentPage="equipes" v-if="isPortrait"/>
 </template>
 
 <script>
