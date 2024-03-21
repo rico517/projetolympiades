@@ -203,6 +203,12 @@ input[type="password"]:focus{
     margin-right:3%;
     user-select: none;
 }
+
+#passwordHolder.no-margin img {
+  margin-right: -3%;
+  margin-left:0;
+}
+
 #passwordHolder img:hover{
     cursor: pointer;
 }
