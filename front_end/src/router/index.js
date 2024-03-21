@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-
+import NomPages from '../enums/NomPages.enum';
 import CnxPage from '@views/CnxPage.view.vue';
 
 // Imports Admin
@@ -19,21 +19,20 @@ import ClassementPageUser from '@views/User/ClassementPageUser.view.vue';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-      {path: '/',name: 'cnx',component: CnxPage},
-
+      {path: '/',name: NomPages.connexion,component: CnxPage},
       // Routes Admin
-      {path: '/accueil-admin',name: 'accueil-admin',component: AccueilPageAdmin},
-      {path: '/jeux-admin',name: 'jeux-admin',component: JeuxPageAdmin},
-      {path: '/equipes-admin',name: 'equipes-admin',component: EquipesPageAdmin},
-      {path: '/planning-admin',name: 'planning-admin',component: PlanningPageAdmin},
-      {path: '/classement-admin',name: 'classement-admin',component: ClassementPageAdmin},
+      {path: '/accueil-admin',name: NomPages.accueilAdmin,component: AccueilPageAdmin},
+      {path: '/jeux-admin',name: NomPages.jeuxAdmin,component: JeuxPageAdmin},
+      {path: '/equipes-admin',name: NomPages.equipesAdmin,component: EquipesPageAdmin},
+      {path: '/planning-admin',name: NomPages.planningAdmin,component: PlanningPageAdmin},
+      {path: '/classement-admin',name: NomPages.classementAdmin,component: ClassementPageAdmin},
       
       // Routes User
-      {path: '/accueil-user',name: 'accueil-user',component: AccueilPageUser},
-      {path: '/jeux-user',name: 'jeux-user',component: JeuxPageUser},
-      {path: '/equipes-user',name: 'equipes-user',component: EquipesPageUser},
-      {path: '/planning-user',name: 'planning-user',component: PlanningPageUser},
-      {path: '/classement-user',name: 'classement-user',component: ClassementPageUser},
+      {path: '/accueil-user',name: NomPages.accueilUser,component: AccueilPageUser},
+      {path: '/jeux-user',name: NomPages.jeuxUser,component: JeuxPageUser},
+      {path: '/equipes-user',name: NomPages.equipesUser,component: EquipesPageUser},
+      {path: '/planning-user',name: NomPages.planningUser,component: PlanningPageUser},
+      {path: '/classement-user',name: NomPages.classementUser,component: ClassementPageUser},
   ]
 })
 

@@ -1,15 +1,16 @@
 <script setup>
 import TypePages from '../../enums/TypePages.enum';
+import NomPages from '../../enums/NomPages.enum';
 </script>
 
 <template>
   <div id="menuContainer">
     <div id="buttonsHolder">
-        <router-link :to="{name: 'accueil-admin'}" :id=TypePages.accueil class="bhBtns">Accueil</router-link> 
-        <router-link :to="{name: 'jeux-admin'}" :id=TypePages.jeux class="bhBtns">Jeux</router-link>
-        <router-link :to="{name: 'equipes-admin'}" :id=TypePages.equipes class="bhBtns">Equipes</router-link>
-        <router-link :to="{name: 'planning-admin'}" :id=TypePages.planning class="bhBtns">Planning</router-link>
-        <router-link :to="{name: 'classement-admin'}" :id=TypePages.classement class="bhBtns">Classement</router-link>
+        <router-link :to="{name: NomPages.accueilAdmin}" :id=TypePages.accueil class="bhBtns">Accueil</router-link> 
+        <router-link :to="{name: NomPages.jeuxAdmin}" :id=TypePages.jeux class="bhBtns">Jeux</router-link>
+        <router-link :to="{name: NomPages.equipesAdmin}" :id=TypePages.equipes class="bhBtns">Equipes</router-link>
+        <router-link :to="{name: NomPages.planningAdmin}" :id=TypePages.planning class="bhBtns">Planning</router-link>
+        <router-link :to="{name: NomPages.classementAdmin}" :id=TypePages.classement class="bhBtns">Classement</router-link>
     </div>
     <button class="mcBtn">Déconnexion</button>
   </div>

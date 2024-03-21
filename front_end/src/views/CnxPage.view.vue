@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TestBDDComponent from '../assets/components/TestBDD.component.vue';
+import NomPages from "../enums/NomPages.enum";
 import DataServices from "../services/PasserelleJson.services";
 import Utilisateur from '../classes/Utilisateurs.class.ts';
 </script>
@@ -66,11 +66,11 @@ export default {
                 const newUtilisateur = new Utilisateur(donnees.id,this.pseudo,this.mdp,donnees.niveauCnx);
                 // Envoyer l'utilisateur vers la page de score version admin si le niveau de connexion est 2
                 if(newUtilisateur.niveauCnx == 2){
-                    this.$router.push("/accueil-admin");
+                    this.$router.push(NomPages.accueilAdmin);
                 }
                 // Envoyer l'utilisateur vers la page de score version user si le niveau de connexion est 1
                 else if (newUtilisateur.niveauCnx == 1){
-                    this.$router.push("/accueil-user");
+                    this.$router.push(NomPages.accueilUser);
                 }
             })
             .catch(e => {

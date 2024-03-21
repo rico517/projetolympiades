@@ -1,9 +1,8 @@
-enum NomPages {
+enum TypePages {
     accueil = "accueil",
     jeux = "jeux",
     equipes = "equipes",
     planning = "planning",
-    classement = "classement",
+    classement = "classement"
 }
-
-export default NomPages;
+export default TypePages;
