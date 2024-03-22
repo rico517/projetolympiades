@@ -2,6 +2,8 @@
 import TypePages from '../../enums/TypePages.enum';
 import HeaderComponent from '../../assets/components/Header.component.vue';
 import AdminMenuComponent from '../../assets/components/AdminMenu.component.vue';
+import DataServices from "../../services/PasserelleJson.services";
+import Jeu from "../../classes/Jeu.class";
 /*
 Appel du header
 Appel de AdminMenuComponent "landscape" lorsque l'ecran est en mode PC
@@ -15,7 +17,13 @@ Appel de AdminMenuComponent "portrait" lorsque l'ecran est en mode TEL
     <div id="contentContainer">
         <AdminMenuComponent :currentPage=TypePages.jeux v-if="isLandscape"/>
         <AdminScoreComponent/>
+        <div v-for="jeu in lesJeux">
+        {{ jeu.libelle }} 
+        {{ jeu.typeJeu }}
+        {{ jeu.regles }}
+        </div>
     </div>
+    
     <AdminMenuComponent :currentPage=TypePages.jeux v-if="isPortrait"/>
 </template>
 
@@ -24,10 +32,12 @@ export default {
     data() {
         return {
             isPortrait: false,
-            isLandscape: false
+            isLandscape: false,
+            lesJeux:[]
         };
     },
     mounted() {
+        this.recupLesJeux();
         this.windowOrientation();
         window.addEventListener('resize', this.windowOrientation);
     },
@@ -41,7 +51,20 @@ export default {
                 this.isLandscape = false;
                 this.isPortrait = true;
             }
+        },
+        recupLesJeux(){
+            DataServices.getTousLesJeux()
+            .then((response)=>{
+                response.data.forEach((jeu)=>{
+                    let jeux = new Jeu(jeu.id,jeu.libelle,jeu.regles,jeu.nbPoints,jeu.typeJeu)
+                    this.lesJeux.push(jeux)
+                    
+                })
+            })
+            .catch(e => {
+                console.log(e)})
         }
+        
     }
 }
 </script>
