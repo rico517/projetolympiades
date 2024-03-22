@@ -46,7 +46,7 @@ class DataService{
     }
 
     getToutesLesHeures(){
-        return http.get("/GetToutesLesHeures");
+        return http.get("/GetToutesLesHoraires");
     }
 }
 

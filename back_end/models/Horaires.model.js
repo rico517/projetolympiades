@@ -13,7 +13,7 @@ import sql from "../data/Connection.js";
 */
 export function getToutesLesHoraires(res) {
   // Execute la requete SQL
-  sql.query(`SELECT heure FROM horaires`, (err, result) =>{
+  sql.query(`SELECT * FROM horaires`, (err, result) =>{
       // Cas d'erreur dans l'execution de la requete
       if (err) {
           let msg = "erreur dans la requete : " +  err;
