@@ -2,9 +2,7 @@
 import TypePages from '../../enums/TypePages.enum';
 import HeaderComponent from '../../assets/components/Header.component.vue';
 import AdminMenuComponent from '../../assets/components/AdminMenu.component.vue';
-import DataServices from "../../services/PasserelleJson.services";
-import Equipe from "../../classes/Equipe.class";
-import Section from "../../classes/Section.class";
+import AdminEquipesComponent from '../../assets/components/AdminEquipes.component.vue';
 /*
 Appel du header
 Appel de AdminMenuComponent "landscape" lorsque l'ecran est en mode PC
@@ -17,12 +15,7 @@ Appel de AdminMenuComponent "portrait" lorsque l'ecran est en mode TEL
     <HeaderComponent/>
     <div id="contentContainer">
         <AdminMenuComponent :currentPage=TypePages.equipes v-if="isLandscape"/>
-        <AdminScoreComponent/>
-        <div class="element" v-for="equipe in lesEquipes">
-      {{equipe.nom}}
-      {{ equipe.score}}
-      {{ equipe.section.couleur }}
-    </div>
+        <AdminEquipesComponent/>
     </div>
     <AdminMenuComponent :currentPage=TypePages.equipes v-if="isPortrait"/>
 </template>
@@ -31,13 +24,11 @@ Appel de AdminMenuComponent "portrait" lorsque l'ecran est en mode TEL
 export default {
     data() {
         return {
-            lesEquipes:[],
             isPortrait: false,
             isLandscape: false
         };
     },
     mounted() {
-        this.getToutesLesEquipes(),
         this.windowOrientation();
         window.addEventListener('resize', this.windowOrientation);
     },
@@ -51,24 +42,6 @@ export default {
                 this.isLandscape = false;
                 this.isPortrait = true;
             }
-        },
-        getToutesLesEquipes(){
-            DataServices.getToutesLesEquipes()
-            .then(response => {
-                response.data.forEach((equipe) => {
-                  DataServices.getUneSection(equipe.idSections).then(response => {
-                    response.data.forEach((section) => {
-                      const newSection = new Section(section.id,section.nom,section.score,section.couleur);
-                      let newEquipe = new Equipe(equipe.id,equipe.nom,equipe.score,newSection);
-                      this.lesEquipes.push(newEquipe);
-                      
-                    });
-                  });  
-                });
-                console.log(this.lesEquipes);})
-            .catch(e => {
-                console.log(e);
-        });
         }
     }
 }
