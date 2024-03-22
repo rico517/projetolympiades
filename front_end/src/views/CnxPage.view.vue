@@ -20,8 +20,8 @@ import Utilisateur from '../classes/Utilisateurs.class';
                 </div>
                 <div class="inputTextHolder">
                     <p>Mot de passe :</p>
-                    <div id="passwordHolder" :class="{ 'no-margin': this.mdpVisible }">
-                        <input :type="this.mdpVisible ? 'text' : 'password'" v-model="mdp"/>
+                    <div id="passwordHolder">
+                        <input id="inputMdp" :type="this.mdpVisible ? 'text' : 'password'" v-model="mdp"/>
                         <img @click="changerVisibiliteMdp" src="../assets/img/oeilOuvert.png" v-if="this.mdpVisible"/>
                         <img @click="changerVisibiliteMdp" src="../assets/img/oeilFerme.png" v-if="!this.mdpVisible"/>
                     </div>
@@ -165,18 +165,6 @@ input[type="text"]:focus{
     outline:none;
 }
 
-input[type="password"]{
-    width:89%;
-    height:100%;
-    border:none;
-    font-size: 2.5vh;
-    font-weight: normal;
-}
-
-input[type="password"]:focus{
-    outline:none;
-}
-
 #errorLabel{
     color:red;
     font-size: 2.4em;
@@ -192,10 +180,6 @@ input[type="password"]:focus{
     margin-left: 5%;
 }
 
-#passwordHolder.no-margin {
-  margin-left: 0;
-}
-
 #passwordHolder img{
     width:10%;
     border:none;
@@ -204,9 +188,16 @@ input[type="password"]:focus{
     user-select: none;
 }
 
-#passwordHolder.no-margin img {
-  margin-right: -3%;
-  margin-left:0;
+#inputMdp{
+    width:89%;
+    height:100%;
+    border:none;
+    font-size: 2.5vh;
+    font-weight: normal;
+}
+
+#inputMdp:focus{
+    outline:none;
 }
 
 #passwordHolder img:hover{
