@@ -6,7 +6,6 @@ import Utilisateur from '../classes/Utilisateurs.class';
 
 <template>
 <body>
-    <HeaderComponent/>
     <div id="container">
         <div id="containerLogo">
             <img src="../assets/img/logo_olympiaDLS.png">
@@ -16,7 +15,7 @@ import Utilisateur from '../classes/Utilisateurs.class';
             <div id="inputLoginHolder">
                 <div class="inputTextHolder">
                     <p>Identifiant :</p>
-                    <input type="text" v-model="pseudo"/>
+                    <input id="inputLogin" type="text" v-model="pseudo"/>
                 </div>
                 <div class="inputTextHolder">
                     <p>Mot de passe :</p>
@@ -34,8 +33,7 @@ import Utilisateur from '../classes/Utilisateurs.class';
         </div>
     </div>
 </body>
-<!--  <router-link to="/score-admin"><button>Page gestion score admin</button></router-link> -->
-<!-- <router-link :to="{name: 'score-user'}"><button>Page gestion score user</button></router-link> -->
+
 </template>
 
 <script lang="ts">
@@ -86,10 +84,7 @@ export default {
     }
 }
 
-
 </script>
-
-
 
 <style scoped>
 #container{
@@ -153,7 +148,7 @@ export default {
 }
 
 
-input[type="text"]{
+#inputLogin{
     width:90%;
     height:65%;
     border:none;
@@ -161,7 +156,7 @@ input[type="text"]{
     font-weight: normal;
     margin-left: 5%;
 }
-input[type="text"]:focus{
+#inputLogin:focus{
     outline:none;
 }
 
@@ -194,6 +189,7 @@ input[type="text"]:focus{
     border:none;
     font-size: 2.5vh;
     font-weight: normal;
+    text-align: start;
 }
 
 #inputMdp:focus{
