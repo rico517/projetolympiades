@@ -52,3 +52,32 @@ export function getToutesLesEquipes(res) {
       }
     });
 };
+
+/*
+@description - Permet d'ajouter des points au score d'une equipe
+@param {number} id - L'ID de l'equipe a retourner
+@param {number} nombre - Le nombre de points a ajouter
+@return {String} result - ok si l'ajout a fonctionne
+*/
+export function ajouterScoreEquipe(id,nombre,res) {
+  // Execute la requete SQL
+  sql.query(`UPDATE equipes SET score = score + ${nombre} WHERE id = ${id}`, (err, result) => {
+    // Cas d'erreur dans l'execution de la requete
+    if (err) {
+      let msg = "erreur dans la requete : " +  err;
+      res(msg,null);
+      return;
+    }
+    // Si aucun resultat n'est trouve
+    else if (result.affectedRows === 0) {
+      let msg = "L'equipe d'id " + id + " n'existe pas";
+      res(msg, null);
+      return;
+    }
+    // Renvoyer le resultat de la requete
+    else{
+      let msg = "ok";
+      res(null,msg);
+    }
+  });
+}

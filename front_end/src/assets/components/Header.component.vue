@@ -77,7 +77,7 @@ export default {
       justify-content: start;
       align-items: center;
       width:100vw;
-      height:5vh;
+      height:8vh;
       background-color: #e7191f;
     }
     #container{

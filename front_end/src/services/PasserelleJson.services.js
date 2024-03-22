@@ -36,6 +36,14 @@ class DataService{
     getEquipesPlanning(idJeu){
         return http.get("/GetEquipesPlanning/" + idJeu);
     }
+
+    ajouterScoreEquipe(id,nombre){
+        return http.post("/AjouterScoreEquipe/" + id + "/" + nombre);
+    }
+
+    ajouterScoreSection(id,nombre){
+        return http.post("/AjouterScoreSection/" + id + "/" + nombre);
+    }
 }
 
 export default new DataService();

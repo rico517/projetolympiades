@@ -16,13 +16,13 @@ FOOTER 0vh (pas de footer en mode PC)
 Mode Telephone :
 HEADER 8vh
 Content 84vh
-FOOTER 8vh
+FOOTER(menu) 8vh
 */
 
 body{
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     width:100vw;
     height:100vh;
     background-color: #EFEFEF;

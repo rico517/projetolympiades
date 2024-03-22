@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import TestBDDComponent from '../assets/components/TestBDD.component.vue';
+import NomPages from "../enums/NomPages.enum";
 import DataServices from "../services/PasserelleJson.services";
-import Utilisateur from '../classes/Utilisateurs.class.ts';
+import Utilisateur from '../classes/Utilisateurs.class';
 </script>
 
 <template>
@@ -20,11 +20,11 @@ import Utilisateur from '../classes/Utilisateurs.class.ts';
                 </div>
                 <div class="inputTextHolder">
                     <p>Mot de passe :</p>
-                    <input type="password" v-model="mdp"/>
-                </div>
-                <div id="inputCheckboxHolder">
-                    <div id="checkbox"><img src="../assets/img/oeilOuvert.png"></div>
-                    <p>Afficher le mot de passe</p>
+                    <div id="passwordHolder" :class="{ 'no-margin': this.mdpVisible }">
+                        <input :type="this.mdpVisible ? 'text' : 'password'" v-model="mdp"/>
+                        <img @click="changerVisibiliteMdp" src="../assets/img/oeilOuvert.png" v-if="this.mdpVisible"/>
+                        <img @click="changerVisibiliteMdp" src="../assets/img/oeilFerme.png" v-if="!this.mdpVisible"/>
+                    </div>
                 </div>
                 <div id="errorLabel">
                     {{ errMsg }}
@@ -45,6 +45,7 @@ export default {
             mdp: "",
             pseudo: "",
             errMsg: "",
+            mdpVisible: false,
         }
     },
     methods: {
@@ -67,23 +68,28 @@ export default {
                 const newUtilisateur = new Utilisateur(donnees.id,this.pseudo,this.mdp,donnees.niveauCnx);
                 // Envoyer l'utilisateur vers la page de score version admin si le niveau de connexion est 2
                 if(newUtilisateur.niveauCnx == 2){
-                    this.$router.push("/score-admin");
+                    this.$router.push(NomPages.accueilAdmin);
                 }
                 // Envoyer l'utilisateur vers la page de score version user si le niveau de connexion est 1
                 else if (newUtilisateur.niveauCnx == 1){
-                    this.$router.push("/score-user");
+                    this.$router.push(NomPages.accueilUser);
                 }
             })
             .catch(e => {
                 this.errMsg = "Identifiant ou mot de passe incorrect";
                 return;
             });
+        },
+        changerVisibiliteMdp(){
+            this.mdpVisible = !this.mdpVisible;
         }
     }
 }
 
 
 </script>
+
+
 
 <style scoped>
 #container{
@@ -147,7 +153,7 @@ export default {
 }
 
 
-input[type="text"],input[type="password"]{
+input[type="text"]{
     width:90%;
     height:65%;
     border:none;
@@ -155,41 +161,56 @@ input[type="text"],input[type="password"]{
     font-weight: normal;
     margin-left: 5%;
 }
-input[type="text"]:focus,input[type="password"]:focus{
+input[type="text"]:focus{
+    outline:none;
+}
+
+input[type="password"]{
+    width:89%;
+    height:100%;
+    border:none;
+    font-size: 2.5vh;
+    font-weight: normal;
+}
+
+input[type="password"]:focus{
     outline:none;
 }
 
 #errorLabel{
     color:red;
-    font-size: medium;
+    font-size: 2.4em;
     font-weight: bold;
+    text-align:center;
 }
 
-
-#inputCheckboxHolder{
+#passwordHolder{
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    width:70%;
-    height:10%;
-    font-weight: bold;
+    width:95%;
+    height:65%;
+    margin-left: 5%;
 }
 
-#inputCheckboxHolder p{
-    font-size: 1.6rem;
+#passwordHolder.no-margin {
+  margin-left: 0;
 }
 
-#checkbox{
-    height:70%;
-    aspect-ratio: 1/1;
+#passwordHolder img{
+    width:10%;
+    border:none;
+    margin-left:0.5%;
+    margin-right:3%;
+    user-select: none;
 }
 
-#checkbox:hover{
+#passwordHolder.no-margin img {
+  margin-right: -3%;
+  margin-left:0;
+}
+
+#passwordHolder img:hover{
     cursor: pointer;
-}
-
-#checkbox img{
-    height:100%;
 }
 
 

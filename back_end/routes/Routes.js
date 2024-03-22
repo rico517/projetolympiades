@@ -8,6 +8,7 @@ import express from "express";
 
 import GetUneEquipe from "../controllers/GetUneEquipe.controller.js";
 import GetTouteLesEquipes from "../controllers/GetToutesLesEquipes.controller.js";
+import AjouterScoreEquipe from "../controllers/AjouterScoreEquipe.controller.js";
 
 import GetUnJeu from "../controllers/GetUnJeu.controller.js";
 import GetTousLesJeux from "../controllers/GetTousLesJeux.controller.js";
@@ -18,6 +19,7 @@ import GetPlanningDeJeu from "../controllers/GetPlanningDeJeu.controller.js";
 
 import GetUneSection from "../controllers/GetUneSection.controller.js";
 import GetTouteLesSections from "../controllers/GetTouteLesSections.controller.js";
+import AjouterScoreSection from "../controllers/AjouterScoreSection.controller.js";
 
 import GetUnUtilisateur from "../controllers/GetUnUtilisateur.controller.js";
 
@@ -29,6 +31,7 @@ const router = express.Router();
 // Routes concernant les equipes
 router.get("/GetUneEquipe/:id", GetUneEquipe);
 router.get("/GetTouteLesEquipes", GetTouteLesEquipes);
+router.get("/AjouterScoreEquipe/:id/:nombre", AjouterScoreEquipe);
 
 // Routes concernant les jeux
 router.get("/GetUnJeu/:id", GetUnJeu);
@@ -42,6 +45,7 @@ router.get("/GetPlanningDeJeu/:idJeu", GetPlanningDeJeu);
 // Routes concernant les sections
 router.get("/GetUneSection/:id", GetUneSection);
 router.get("/GetTouteLesSections", GetTouteLesSections);
+router.get("/AjouterScoreSection/:id/:nombre", AjouterScoreSection);
 
 // Routes concernant les utilisateurs
 router.get("/GetUnUtilisateur/:identifiant/:mdp", GetUnUtilisateur);
