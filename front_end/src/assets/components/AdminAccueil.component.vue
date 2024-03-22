@@ -20,7 +20,6 @@ import NomPages from '../../enums/NomPages.enum';
             <router-link :to="{name: NomPages.planningAdmin}" :id=TypePages.planning class="btns">Planning</router-link>
             <router-link :to="{name: NomPages.classementAdmin}" :id=TypePages.classement class="btns">Classement</router-link>
         </div>
-        
     </div>
 </template>
 
@@ -59,7 +58,7 @@ export default {
         align-items: center;
         background-color: white;
         height:100%;
-        width:100%;
+        width:83%;
     }
 
         #topContainer{
