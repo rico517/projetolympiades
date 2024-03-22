@@ -25,6 +25,8 @@ import GetUnUtilisateur from "../controllers/GetUnUtilisateur.controller.js";
 
 import GetEquipesPlanning from "../controllers/GetEquipesPlanning.controller.js";
 
+import GetToutesLesHoraires from "../controllers/GetToutesLesHoraires.controller.js";
+
 // Initialisation du router
 const router = express.Router();
 
@@ -52,6 +54,9 @@ router.get("/GetUnUtilisateur/:identifiant/:mdp", GetUnUtilisateur);
 
 // Routes concernant le pool 
 router.get("/GetEquipesPlanning/:id", GetEquipesPlanning);
+
+// Routes concernant les horaires
+router.get("/GetToutesLesHoraires", GetToutesLesHoraires);
 
 // Exportation du router
 export default router;
