@@ -16,17 +16,17 @@ export default class Planning{
     }
 
     // Recuperer l'id
-    get id(){return this.id;}
+    get id(){return this._id;}
     // Modifier l'id
-    set id(nouveauId:number){this.id = nouveauId;}
+    set id(nouveauId:number){this._id = nouveauId;}
 
     // Recuperer l'horaire
-    get horaire(){return this.horaire;}
+    get horaire(){return this._horaire;}
     // Modifier l'horaire
-    set horaire(nouveauHoraire:string){this.horaire = nouveauHoraire;}
+    set horaire(nouveauHoraire:string){this._horaire = nouveauHoraire;}
 
     // Recuperer le jeu associe
-    get jeu(){return this.jeu;}
+    get jeu(){return this._jeu;}
     // Modifier le jeu associe
-    set jeu(nouveauJeu:Jeu){this.jeu = nouveauJeu;}
+    set jeu(nouveauJeu:Jeu){this._jeu = nouveauJeu;}
 }
