@@ -1,6 +1,5 @@
 <script setup>
 import TypePages from '../../enums/TypePages.enum';
-import HeaderComponent from '../../assets/components/Header.component.vue';
 import AdminMenuComponent from '../../assets/components/AdminMenu.component.vue';
 import DataServices from "../../services/PasserelleJson.services";
 import Jeu from "../../classes/Jeu.class";
@@ -13,10 +12,9 @@ Appel de AdminMenuComponent "portrait" lorsque l'ecran est en mode TEL
 </script>
 
 <template>
-    <HeaderComponent/>
     <div id="contentContainer">
         <AdminMenuComponent :currentPage=TypePages.jeux v-if="isLandscape"/>
-        <AdminScoreComponent/>
+        <!-- <AdminScoreComponent/> -->
         <div v-for="jeu in lesJeux">
         {{ jeu.libelle }} 
         {{ jeu.typeJeu }}

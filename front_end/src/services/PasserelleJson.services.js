@@ -5,8 +5,8 @@ class DataService{
         return http.get("/GetTouteLesEquipes");
     }
 
-    getTouteLesSections(){
-        return http.get("/GetTouteLesSections");
+    getToutesLesSections(){
+        return http.get("/getToutesLesSections");
     }
 
     getTousLesJeux(){

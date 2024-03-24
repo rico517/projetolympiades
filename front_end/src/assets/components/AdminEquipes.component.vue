@@ -6,7 +6,7 @@ import Section from "../../classes/Section.class";
 
 <template>
 <div>
-    <div class="element" v-for="equipe in this.lesEquipes">
+    <div class="element" v-for="equipe in lesEquipes">
         {{ equipe.nom }}
         {{ equipe.score }}
         {{ equipe.section.couleur }}

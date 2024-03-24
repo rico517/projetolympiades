@@ -1,7 +1,7 @@
 <script setup>
 import TypePages from '../../enums/TypePages.enum';
-import HeaderComponent from '../../assets/components/Header.component.vue';
 import AdminMenuComponent from '../../assets/components/AdminMenu.component.vue';
+import AdminClassementComponent from '../../assets/components/AdminClassement.component.vue';
 /*
 Appel du header
 Appel de AdminMenuComponent "landscape" lorsque l'ecran est en mode PC
@@ -11,10 +11,9 @@ Appel de AdminMenuComponent "portrait" lorsque l'ecran est en mode TEL
 </script>
 
 <template>
-    <HeaderComponent/>
     <div id="contentContainer">
         <AdminMenuComponent :currentPage=TypePages.classement v-if="isLandscape"/>
-        <AdminScoreComponent/>
+        <AdminClassementComponent/>
     </div>
     <AdminMenuComponent :currentPage=TypePages.classement v-if="isPortrait"/>
 </template>
@@ -49,6 +48,8 @@ export default {
 <style scoped>
     /* Mode PC */
     #contentContainer{
+        display: flex;
+        flex-direction: row;
         width:100%;
         height:92vh;
     }

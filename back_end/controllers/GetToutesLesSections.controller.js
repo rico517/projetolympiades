@@ -1,16 +1,16 @@
 /*
-@description - Controlleur de la methode getTouteLesSections
+@description - Controlleur de la methode getToutesLesSections
 @authors : 
 Eric Girard
 Julien Demogue
 
-@link - http://localhost:8080/api/GetTouteLesSections
+@link - http://localhost:8080/api/getToutesLesSections
 */
 
-import {getTouteLesSections} from "../models/Sections.model.js";
+import {getToutesLesSections} from "../models/Sections.model.js";
 
 export default (req,res) =>{
-  getTouteLesSections( (err, data) => {
+  getToutesLesSections( (err, data) => {
     if (err)
       res.status(500).send({
         message:

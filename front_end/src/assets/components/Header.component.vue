@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div id="header">
+  <div id="header" v-if="$route.path != '/'">
     <div id="container">
       <button id="btnDropDown"><img src="../img/menu_icon.svg"></button>
       <img src="../img/logo_olympiaDLS.png" />

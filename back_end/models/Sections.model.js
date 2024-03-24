@@ -38,7 +38,7 @@ export function getUneSection(id,res) {
 @description - Renvoie l'ensemble des sections de la base de donnees
 @return {Array} result - L'ensemble des sections de la base de donnees
 */
-export function getTouteLesSections(res) {
+export function getToutesLesSections(res) {
     // Execute la requete SQL
     sql.query(`SELECT * FROM sections`, (err, result) => {
         // Cas d'erreur dans l'execution de la requete

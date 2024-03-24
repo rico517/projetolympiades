@@ -12,7 +12,6 @@ import DataServices from "../../services/PasserelleJson.services";
             </div>
             <div class="topContents">
                 <p>Prochain changement : {{ heureProchainChangement }}</p>
-                
             </div>
         </div>
         <div id="botContainer">
@@ -85,7 +84,7 @@ export default {
             dateHoraire.setMinutes(heure[1]);
             
             // Verification si la date du planning est superieure a l'heure actuelle
-            console.log(dateHoraire.toString() + "\n" + dateActuelle.toString());
+            // console.log(dateHoraire.toString() + "\n" + dateActuelle.toString());
             if(dateHoraire > dateActuelle) {
                 this.heureProchainChangement = horaire.heure;
             }
@@ -136,6 +135,7 @@ export default {
         }
         .topContents p {
             font-size: 3.5em;
+            text-align: center;
         }
 
             #heure{

@@ -1,5 +1,4 @@
 <script setup>
-import HeaderComponent from '../../assets/components/Header.component.vue';
 import AdminMenuComponent from '../../assets/components/AdminMenu.component.vue';
 /*
 Appel du header
@@ -10,7 +9,6 @@ Appel de AdminMenuComponent "portrait" lorsque l'ecran est en mode TEL
 </script>
 
 <template>
-    <HeaderComponent/>
     <div id="contentContainer">
         <AdminMenuComponent v-if="isLandscape"/>
         <AdminScoreComponent/>
