@@ -15,12 +15,12 @@ import Utilisateur from '../classes/Utilisateurs.class';
             <div id="inputLoginHolder">
                 <div class="inputTextHolder">
                     <p>Identifiant :</p>
-                    <input id="inputLogin" type="text" v-model="pseudo"/>
+                    <input id="inputLogin" type="text" v-model="pseudo" @keydown.enter="logIn"/>
                 </div>
                 <div class="inputTextHolder">
                     <p>Mot de passe :</p>
                     <div id="passwordHolder">
-                        <input id="inputMdp" :type="this.mdpVisible ? 'text' : 'password'" v-model="mdp"/>
+                        <input id="inputMdp" :type="this.mdpVisible ? 'text' : 'password'" v-model="mdp" @keydown.enter="logIn"/>
                         <img @click="changerVisibiliteMdp" src="../assets/img/oeilOuvert.png" v-if="this.mdpVisible"/>
                         <img @click="changerVisibiliteMdp" src="../assets/img/oeilFerme.png" v-if="!this.mdpVisible"/>
                     </div>

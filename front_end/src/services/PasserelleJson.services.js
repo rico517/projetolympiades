@@ -44,6 +44,10 @@ class DataService{
     ajouterScoreSection(id,nombre){
         return http.post("/AjouterScoreSection/" + id + "/" + nombre);
     }
+
+    getToutesLesHeures(){
+        return http.get("/GetToutesLesHoraires");
+    }
 }
 
 export default new DataService();

@@ -1,6 +1,7 @@
 <script setup>
 import TypePages from '../../enums/TypePages.enum';
 import NomPages from '../../enums/NomPages.enum';
+import DataServices from "../../services/PasserelleJson.services";
 </script>
 
 <template>
@@ -10,8 +11,8 @@ import NomPages from '../../enums/NomPages.enum';
                 {{heureSysteme}}
             </div>
             <div class="topContents">
-                <p>Prochain changement :</p>
-                {{ heureProchainChangement }}
+                <p>Prochain changement : {{ heureProchainChangement }}</p>
+                
             </div>
         </div>
         <div id="botContainer">
@@ -27,7 +28,9 @@ import NomPages from '../../enums/NomPages.enum';
 export default {
   data() {
     return {
-      heureSysteme: ''
+      heureSysteme: '',
+      heureProchainChangement: '',
+      lesHoraires: [],
     };
   },
   mounted() {
@@ -35,6 +38,12 @@ export default {
     this.updateHeure();
     // Mettre à jour l'heure toutes les 5 secondes
     setInterval(this.updateHeure, 5000);
+
+    // Mettre à jour le prochain changement toutes les minutes
+    setInterval(this.getProchainChangement, 60000);
+
+    // Recuperer toutes les horaires de la journee
+    this.getToutesLesHeures();
   },
   methods: {
     updateHeure() {
@@ -43,6 +52,51 @@ export default {
       const minutes = date.getMinutes().toString().padStart(2, '0');
       const secondes = date.getSeconds().toString().padStart(2, '0');
       this.heureSysteme = `${heures}:${minutes}`;
+    },
+    getToutesLesHeures(){
+        DataServices.getToutesLesHeures().then((response) => {
+            response.data.forEach((heure) =>{
+                this.lesHoraires.push(heure);
+            })
+            this.getProchainChangement();
+        })
+        .catch(e => {
+            console.log(e);
+        });
+    },
+    getProchainChangement(){
+        // Recuperer la date actuelle
+        const dateActuelle = new Date();
+        
+        let i = 0
+        // Parcourir une boucle s'arretant si toutes les horaires ont ete aprcourues ou si le prochain changement a ete defini
+        while(i < this.lesHoraires.length && this.heureProchainChangement == ""){
+            // Recuperer l'horaire d'index i
+            const horaire = this.lesHoraires[i];
+
+            // Creation date vide
+            const dateHoraire = new Date();
+
+            // Recuperation d'un horaire en separant heures, minutes et secondes
+            const heure = horaire.heure.split(":");
+
+            // Recuperer les heures et minutes
+            dateHoraire.setHours(heure[0]);
+            dateHoraire.setMinutes(heure[1]);
+            
+            // Verification si la date du planning est superieure a l'heure actuelle
+            console.log(dateHoraire.toString() + "\n" + dateActuelle.toString());
+            if(dateHoraire > dateActuelle) {
+                this.heureProchainChangement = horaire.heure;
+            }
+
+            i++;
+        }
+        // Si aucune heure du planning est plus tard que l'heure actuelle, alors le prochain changement est la premiere du planning
+        if(this.heureProchainChangement == ""){
+            this.heureProchainChangement = this.lesHoraires[0].heure;
+        }
+
     }
   }
 };
