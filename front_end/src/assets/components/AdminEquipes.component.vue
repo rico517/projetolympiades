@@ -38,7 +38,6 @@ export default {
                     });
                   });  
                 });
-                this.lesEquipes = this.lesEquipes.sort((a,b) => a.nom.localeCompare(b.nom));
             })
             .catch(e => {
                 console.log(e);
