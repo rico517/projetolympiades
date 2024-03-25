@@ -1,7 +1,7 @@
 <script setup>
-import TypePages from '../../enums/TypePages.enum';
-import NomPages from '../../enums/NomPages.enum';
-import DataServices from "../../services/PasserelleJson.services";
+    import TypePages from '../../enums/TypePages.enum';
+    import NomPages from '../../enums/NomPages.enum';
+    import DataServices from "../../services/PasserelleJson.services";
 </script>
 
 <template>
@@ -100,8 +100,6 @@ export default {
 };
 </script>
 
-
-
 <style scoped>
     #container{
         display: flex;
@@ -172,16 +170,6 @@ export default {
                 font-size: 4.5em;
                 box-shadow: inset 0 0 1rem #00000055;
             }
-
-
-
-
-
-
-
-
-
-
     /* 160px + 942px */
     @media all and (orientation : portrait) { 
         #container{

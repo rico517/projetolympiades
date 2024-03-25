@@ -5,14 +5,16 @@ import DataServices from "../../services/PasserelleJson.services";
 <template>
     <div id="container">
         <div id="classementHolder">
-            <div class="classe" v-for="section in lesSections" :style="{ background: section.couleur }">
-                <div class="classeContent" v-if="section.couleur != '#FFFFFF'">
-                    <p> {{ section.scoreTotal }} </p>
-                    <p> {{ section.nom }} </p>
+            <div class="classe" v-for="(section,index) in lesSections" :key="index" :style="{ background: lesSections[index].couleur }">
+                <div class="classeContent" v-if="lesSections[index].couleur != '#FFFFFF'">
+                    <p> {{ index+1 }} - </p>
+                    <p> {{ lesSections[index].nom }} </p>
+                    <p> {{ lesSections[index].scoreTotal }} </p>
                 </div>
-                <div class="classeBlancheContent" v-if="section.couleur == '#FFFFFF'">
-                    <p> {{ section.scoreTotal }} </p>
-                    <p> {{ section.nom }} </p>
+                <div class="classeBlancheContent" v-if="lesSections[index].couleur == '#FFFFFF'">
+                    <p> {{ index+1 }} - </p>
+                    <p> {{ lesSections[index].nom }} </p>
+                    <p> {{ lesSections[index].scoreTotal }} </p>
                 </div>
             </div>
         </div>
@@ -99,15 +101,6 @@ export default {
             margin-left: 2rem;
         }
         
-
-
-
-
-
-
-
-
-
 /* 160px + 942px */
 @media all and (orientation : portrait) { 
         #container{

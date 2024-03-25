@@ -26,6 +26,7 @@ const router = createRouter({
       {path: '/equipes-admin',name: NomPages.equipesAdmin,component: EquipesPageAdmin},
       {path: '/planning-admin',name: NomPages.planningAdmin,component: PlanningPageAdmin},
       {path: '/classement-admin',name: NomPages.classementAdmin,component: ClassementPageAdmin},
+      {path: '/jeu-template',name: NomPages.jeuxTemplateAdmin,component: JeuxTemplatePageAdmin}, // page template des jeux
       
       // Routes User
       {path: '/accueil-user',name: NomPages.accueilUser,component: AccueilPageUser},

@@ -48,6 +48,7 @@ export default {
         font-size:2vh;
     }
     .mcBtn{
+        color:whitesmoke;
         font-size:3vh;
         border:none;
         width:90%;
@@ -132,4 +133,4 @@ export default {
 
         }  */
     }
-</style>../../enums/TypePages.enum
+</style>
