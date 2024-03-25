@@ -31,11 +31,10 @@ export default {
             .then(response => {
                 response.data.forEach((equipe) => {
                   DataServices.getUneSection(equipe.idSections).then(response => {
-                    response.data.forEach((section) => {
-                      const newSection = new Section(section.id,section.nom,section.score,section.couleur);
-                      let newEquipe = new Equipe(equipe.id,equipe.nom,equipe.score,newSection);
-                      this.lesEquipes.push(newEquipe);
-                    });
+                    const section = response.data[0];
+                    const newSection = new Section(section.id,section.nom,section.score,section.couleur);
+                    let newEquipe = new Equipe(equipe.id,equipe.nom,equipe.score,newSection);
+                    this.lesEquipes.push(newEquipe);
                   });  
                 });
             })
