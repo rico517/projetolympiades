@@ -39,7 +39,7 @@ export function getUneEquipe(id,res) {
 */
 export function getToutesLesEquipes(res) {
   // Execute la requete SQL
-  sql.query(`SELECT * FROM equipes`, (err, result) => {
+  sql.query(`SELECT * FROM equipes ORDER BY idSections`, (err, result) => {
     // Cas d'erreur dans l'execution de la requete
       if (err) {
         let msg = "erreur dans la requete : " +  err;

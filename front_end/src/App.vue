@@ -4,6 +4,6 @@ import HeaderComponent from './assets/components/Header.component.vue';
 </script>
 
 <template>
-  <HeaderComponent/>
+  <HeaderComponent  v-if="$route.path != '/'"/>
   <router-view/>
 </template>

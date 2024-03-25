@@ -5,9 +5,9 @@ import DataServices from "../../services/PasserelleJson.services";
 <template>
     <div id="container">
         <div id="classementHolder">
-            <div class="classe" v-for="(section, index) in lesSections" :key="index" :style="{ background: lesSections[index].couleur }">
-                <p> {{ lesSections[index].scoreTotal }} </p>
-                <p> {{ lesSections[index].nom }} </p>
+            <div class="classe" v-for="section in lesSections" :style="{ background: section.couleur }">
+                <p> {{ section.scoreTotal }} </p>
+                <p> {{ section.nom }} </p>
             </div>
         </div>
     </div>
@@ -68,6 +68,7 @@ export default {
             /* background:linear-gradient(to bottom, blue, pink); */
             margin: 1.5vh 0 1.5vh 0;
             border-radius: 1.5vh;
+            box-shadow: inset 0 0 1rem #00000055;
         }
 
         .classe p {
