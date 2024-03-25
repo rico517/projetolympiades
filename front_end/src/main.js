@@ -1,13 +1,13 @@
-import './style.css'
+import './style.css';
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(router)
+app.use(store);
+app.use(router);
 
-app.mount('#app')
-
-var currentPage = 'accueil'; // 'accueil' / 'jeux' / 'equipes' / 'planning' / 'classement'
+app.mount('#app');

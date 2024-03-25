@@ -20,9 +20,9 @@ import Utilisateur from '../classes/Utilisateurs.class';
                 <div class="inputTextHolder">
                     <p>Mot de passe :</p>
                     <div id="passwordHolder">
-                        <input id="inputMdp" :type="this.mdpVisible ? 'text' : 'password'" v-model="mdp" @keydown.enter="logIn"/>
-                        <img @click="changerVisibiliteMdp" src="../assets/img/oeilOuvert.png" v-if="this.mdpVisible"/>
-                        <img @click="changerVisibiliteMdp" src="../assets/img/oeilFerme.png" v-if="!this.mdpVisible"/>
+                        <input id="inputMdp" :type="mdpVisible ? 'text' : 'password'" v-model="mdp" @keydown.enter="logIn"/>
+                        <img @click="changerVisibiliteMdp" src="../assets/img/oeilOuvert.png" v-if="mdpVisible"/>
+                        <img @click="changerVisibiliteMdp" src="../assets/img/oeilFerme.png" v-if="!mdpVisible"/>
                     </div>
                 </div>
                 <div id="errorLabel">
@@ -64,6 +64,10 @@ export default {
             .then((response) => {
                 var donnees = response.data[0];
                 const newUtilisateur = new Utilisateur(donnees.id,this.pseudo,this.mdp,donnees.niveauCnx);
+
+                // Enregistrer le niveau de connexion de l'utilisateur
+                this.$store.commit('setNiveauCnx',newUtilisateur.niveauCnx);
+
                 // Envoyer l'utilisateur vers la page de score version admin si le niveau de connexion est 2
                 if(newUtilisateur.niveauCnx == 2){
                     this.$router.push(NomPages.accueilAdmin);
@@ -75,6 +79,7 @@ export default {
             })
             .catch(e => {
                 this.errMsg = "Identifiant ou mot de passe incorrect";
+                console.log(e);
                 return;
             });
         },
