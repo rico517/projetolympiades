@@ -6,13 +6,18 @@ import DataServices from "../../services/PasserelleJson.services";
     <div id="container">
         <div id="classementHolder">
             <div class="classe" v-for="section in lesSections" :style="{ background: section.couleur }">
-                <p> {{ section.scoreTotal }} </p>
-                <p> {{ section.nom }} </p>
+                <div class="classeContent" v-if="section.couleur != '#FFFFFF'">
+                    <p> {{ section.scoreTotal }} </p>
+                    <p> {{ section.nom }} </p>
+                </div>
+                <div class="classeBlancheContent" v-if="section.couleur == '#FFFFFF'">
+                    <p> {{ section.scoreTotal }} </p>
+                    <p> {{ section.nom }} </p>
+                </div>
             </div>
         </div>
     </div>
 </template>
-
 
 <script>
 export default {
@@ -71,11 +76,29 @@ export default {
             box-shadow: inset 0 0 1rem #00000055;
         }
 
-        .classe p {
+        .classeContent {
+            display: flex;
+            align-items: center;
+            width:100%;
+            height:100%;
+        }
+            .classeContent p{
+                color : whitesmoke;
+                font-size: 5rem;
+                margin-left: 2rem;
+            }
+
+        .classeBlancheContent {
+            display: flex;
+            align-items: center;
+            width:100%;
+            height:100%;
+        }
+        .classeBlancheContent p{
             font-size: 5rem;
             margin-left: 2rem;
         }
-
+        
 
 
 

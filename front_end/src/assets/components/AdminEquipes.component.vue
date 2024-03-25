@@ -7,9 +7,15 @@ import Section from "../../classes/Section.class";
 <template>
     <div id="container">
         <div id="equipesHolder">
-            <div class="equipe" v-for="equipe in lesEquipes" :style="{ background: equipe.section.couleur }">
-                <p> {{ equipe.nom }} </p>
-                <p> : {{ equipe.score }} </p>
+            <div class="equipe" v-for="equipe in lesEquipes" :style="{ background: equipe.section.couleur } ">
+                <div class="equipeContent" v-if="equipe.section.couleur != '#FFFFFF'">
+                    <p> {{ equipe.nom }} </p>
+                    <p> : {{ equipe.score }} </p>
+                </div>
+                <div class="equipeBlancheContent" v-if="equipe.section.couleur == '#FFFFFF'">
+                    <p> {{ equipe.nom }} </p>
+                    <p> : {{ equipe.score }} </p>
+                </div>
             </div>
         </div>
     </div>
@@ -72,17 +78,37 @@ export default {
             display: flex;
             align-items: center;
             width: 95%;
-            min-height: 4.5rem;
+            min-height: 6rem;
             /* background:linear-gradient(to bottom, blue, pink); */
-            margin: 1rem 0 1rem 0;
+            margin: 0.75rem 0 0.75rem 0;
             border-radius: 0.5rem;
             box-shadow: inset 0 0 0.5rem #00000055;
         }
 
-        .equipe p {
-            font-size: 2.5rem;
-            margin-left: 2rem;
+        .equipeContent {
+            display: flex;
+            align-items: center;
+            width:100%;
+            height:100%;
         }
+            .equipeContent p{
+                color: whitesmoke;
+                font-size: 2.5rem;
+                margin-left: 2rem;
+            }
+
+
+        .equipeBlancheContent {
+            display: flex;
+            align-items: center;
+            width:100%;
+            height:100%;
+        }
+            .equipeBlancheContent p{
+                font-size: 2.5rem;
+                margin-left: 2rem;
+            }
+
 
 /* 160px + 942px */
 @media all and (orientation : portrait) { 

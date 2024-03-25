@@ -162,7 +162,7 @@ INSERT INTO Sections (id, nom, scoreTotal, couleur) VALUES
 (1, 'ASS', 0, '#38B6FF'),
 (2, 'CG', 0, '#47AA2C'),
 (3, 'DCG', 0, '#F9C51B'),
-(4, 'MCO', 0, 'Blanc'),
+(4, 'MCO', 0, '#FFFFFF'),
 (5, 'NDRC', 0, '#8C52FF'),
 (6, 'SIO', 0, '#E7191F'),
 (7, 'PECT', 0, '#FF66C4');
