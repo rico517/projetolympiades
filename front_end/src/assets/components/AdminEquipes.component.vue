@@ -7,7 +7,7 @@ import Section from "../../classes/Section.class";
 <template>
     <div id="container">
         <div id="equipesHolder">
-            <div class="equipe" v-for="equipe in lesEquipes" :style="{ background: equipe.section.couleur }">
+            <div class="equipe" v-for="equipe in lesEquipes"  :style="{ background: equipe.section.couleur }" >
                 <p> {{ equipe.nom }} </p>
                 <p> : {{ equipe.score }} </p>
             </div>
@@ -30,13 +30,17 @@ export default {
             DataServices.getToutesLesEquipes()
             .then(response => {
                 response.data.forEach((equipe) => {
-                  DataServices.getUneSection(equipe.idSections).then(response => {
-                    const section = response.data[0];
-                    const newSection = new Section(section.id,section.nom,section.score,section.couleur);
-                    let newEquipe = new Equipe(equipe.id,equipe.nom,equipe.score,newSection);
+                    const newEquipe = new Equipe(equipe.id,equipe.nom,equipe.score,equipe.idSections);
                     this.lesEquipes.push(newEquipe);
-                  });  
                 });
+            }).then(() => {
+                this.lesEquipes.forEach(equipe =>{
+                    DataServices.getUneSection(equipe.section).then(response => {
+                        const section = response.data[0];
+                        const newSection = new Section(section.id,section.nom,section.score,section.couleur);
+                        equipe.section = newSection;
+                    });
+                })
             })
             .catch(e => {
                 console.log(e);
