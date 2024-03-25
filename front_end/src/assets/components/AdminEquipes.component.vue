@@ -5,14 +5,14 @@ import Section from "../../classes/Section.class";
 </script>
 
 <template>
-<div>
-    <div class="element" v-for="equipe in lesEquipes">
-        {{ equipe.nom }}
-        {{ equipe.score }}
-        {{ equipe.section.couleur }}
-        <!-- blabla tu peux mettre les autres param de l'equipe stv -->
+    <div id="container">
+        <div id="equipesHolder">
+            <div class="equipe" v-for="equipe in lesEquipes" :style="{ background: equipe.section.couleur }">
+                <p> {{ equipe.nom }} </p>
+                <p> : {{ equipe.score }} </p>
+            </div>
+        </div>
     </div>
-</div>
 </template>
 
 <script>
@@ -48,4 +48,55 @@ export default {
 </script>
 
 <style scoped>
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height:100%;
+    width:83%;
+}
+    #equipesHolder {
+        overflow: scroll;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width:90%;
+        height:95%;
+    }
+        .equipe {
+            display: flex;
+            align-items: center;
+            width: 95%;
+            min-height: 4.5rem;
+            /* background:linear-gradient(to bottom, blue, pink); */
+            margin: 1.5rem 0 1.5rem 0;
+            border-radius: 1rem;
+            box-shadow: inset 0 0 0.5rem #00000055;
+        }
+
+        .equipe p {
+            font-size: 2.5rem;
+            margin-left: 2rem;
+        }
+
+
+
+
+
+
+
+
+
+
+/* 160px + 942px */
+@media all and (orientation : portrait) { 
+        #container{
+            background-color:rgb(255, 255, 255);
+            height:100%;
+            width:100%;
+        } 
+    }
+
 </style>

@@ -163,10 +163,15 @@ export default {
                 border-radius: 15px;
                 border: none;
                 background-color: #FF000088;
+                transition: 0.3s ease;
             }
             .btns:hover{
                 background-color: #FF0000AA;
                 cursor: pointer;
+                width:72%;
+                height:58%;
+                font-size: 4.5em;
+                box-shadow: inset 0 0 1rem #00000055;
             }
 
 
