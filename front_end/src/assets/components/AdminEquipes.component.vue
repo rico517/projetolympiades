@@ -7,7 +7,7 @@ import Section from "../../classes/Section.class";
 <template>
     <div id="container">
         <div id="equipesHolder">
-            <div class="equipe" v-for="equipe in lesEquipes"  :style="{ background: equipe.section.couleur }" >
+            <div class="equipe" v-for="equipe in lesEquipes" :style="{ background: equipe.section.couleur }">
                 <p> {{ equipe.nom }} </p>
                 <p> : {{ equipe.score }} </p>
             </div>
@@ -74,8 +74,8 @@ export default {
             width: 95%;
             min-height: 4.5rem;
             /* background:linear-gradient(to bottom, blue, pink); */
-            margin: 1.5rem 0 1.5rem 0;
-            border-radius: 1rem;
+            margin: 1rem 0 1rem 0;
+            border-radius: 0.5rem;
             box-shadow: inset 0 0 0.5rem #00000055;
         }
 
@@ -83,15 +83,6 @@ export default {
             font-size: 2.5rem;
             margin-left: 2rem;
         }
-
-
-
-
-
-
-
-
-
 
 /* 160px + 942px */
 @media all and (orientation : portrait) { 
