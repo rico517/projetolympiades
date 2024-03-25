@@ -7,7 +7,7 @@ import DataServices from "../../services/PasserelleJson.services";
         <div id="classementHolder">
             <div class="classe" v-for="(section, index) in lesSections" :key="index" :style="{ background: lesSections[index].couleur }">
                 <p> {{ lesSections[index].scoreTotal }} </p>
-                <p> {{ lesSections[index].couleur }} </p>
+                <p> {{ lesSections[index].nom }} </p>
             </div>
         </div>
     </div>
