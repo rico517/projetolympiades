@@ -13,7 +13,7 @@ Appel de AdminMenuComponent "portrait" lorsque l'ecran est en mode TEL
 <template>
     <div id="contentContainer">
         <AdminMenuComponent :currentPage=TypePages.equipes v-if="isLandscape"/>
-        <AdminEquipesComponent/>
+        <AdminEquipesComponent />
     </div>
     <AdminMenuComponent :currentPage=TypePages.equipes v-if="isPortrait"/>
 </template>
