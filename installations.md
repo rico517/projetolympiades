@@ -7,3 +7,4 @@ vue
 vue-router
 express
 axios
+vuex
