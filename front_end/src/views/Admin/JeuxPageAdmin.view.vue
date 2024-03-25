@@ -2,8 +2,8 @@
 import TypePages from '../../enums/TypePages.enum';
 import AdminMenuComponent from '../../assets/components/AdminMenu.component.vue';
 import AdminJeuxComponent from '../../assets/components/AdminJeux.component.vue';
-import DataServices from "../../services/PasserelleJson.services";
-import Jeu from "../../classes/Jeu.class";
+// import DataServices from "../../services/PasserelleJson.services";
+// import Jeu from "../../classes/Jeu.class";
 /*
 Appel du header
 Appel de AdminMenuComponent "landscape" lorsque l'ecran est en mode PC
@@ -52,6 +52,8 @@ export default {
 <style scoped>
     /* Mode PC */
     #contentContainer{
+        display: flex;
+        flex-direction: row;
         width:100%;
         height:92vh;
     }
