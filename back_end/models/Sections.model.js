@@ -40,7 +40,7 @@ export function getUneSection(id,res) {
 */
 export function getToutesLesSections(res) {
     // Execute la requete SQL
-    sql.query(`SELECT * FROM sections`, (err, result) => {
+    sql.query(`SELECT * FROM sections order by scoreTotal desc`, (err, result) => {
         // Cas d'erreur dans l'execution de la requete
         if(err) {
             let msg = "erreur dans la requete : " +  err;
