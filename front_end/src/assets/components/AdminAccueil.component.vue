@@ -66,7 +66,7 @@ export default {
     getProchainChangement(){
         // Recuperer la date actuelle
         const dateActuelle = new Date();
-        
+        this.heureProchainChangement = "";
         let i = 0
         // Parcourir une boucle s'arretant si toutes les horaires ont ete aprcourues ou si le prochain changement a ete defini
         while(i < this.lesHoraires.length && this.heureProchainChangement == ""){
@@ -84,18 +84,17 @@ export default {
             dateHoraire.setMinutes(heure[1]);
             
             // Verification si la date du planning est superieure a l'heure actuelle
-            // console.log(dateHoraire.toString() + "\n" + dateActuelle.toString());
             if(dateHoraire > dateActuelle) {
-                this.heureProchainChangement = horaire.heure;
+                this.heureProchainChangement = horaire.heure.slice(0,5);
             }
 
             i++;
+            
         }
         // Si aucune heure du planning est plus tard que l'heure actuelle, alors le prochain changement est la premiere du planning
         if(this.heureProchainChangement == ""){
-            this.heureProchainChangement = this.lesHoraires[0].heure;
+            this.heureProchainChangement = this.lesHoraires[0].heure.slice(0,5);
         }
-
     }
   }
 };
