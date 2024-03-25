@@ -159,13 +159,13 @@ INSERT INTO Pool (idPlanning, idEquipe) VALUES
 (4, 3);
 
 INSERT INTO Sections (id, nom, scoreTotal, couleur) VALUES
-(1, 'ASS', 0, 'Bleu'),
-(2, 'CG', 0, 'Vert'),
-(3, 'DCG', 0, 'Jaune'),
+(1, 'ASS', 0, '#38B6FF'),
+(2, 'CG', 0, '#47AA2C'),
+(3, 'DCG', 0, '#F9C51B'),
 (4, 'MCO', 0, 'Blanc'),
-(5, 'NDRC', 0, 'Violet'),
-(6, 'SIO', 0, 'Rouge'),
-(7, 'PECT', 0, 'Rose');
+(5, 'NDRC', 0, '#8C52FF'),
+(6, 'SIO', 0, '#E7191F'),
+(7, 'PECT', 0, '#FF66C4');
 
 INSERT INTO Horaires (id, heure) VALUES
 (0, '10:00:00'),
