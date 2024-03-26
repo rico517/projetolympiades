@@ -10,6 +10,7 @@ import JeuxPageAdmin from '@views/Admin/JeuxPageAdmin.view.vue';
 import EquipesPageAdmin from '@views/Admin/EquipesPageAdmin.view.vue';
 import PlanningPageAdmin from '@views/Admin/PlanningPageAdmin.view.vue';
 import ClassementPageAdmin from '@views/Admin/ClassementPageAdmin.view.vue';
+import JeuxTemplatePageAdmin from '@views/Admin/JeuxTemplatePageAdminView.vue';
 
 // Imports User
 import AccueilPageUser from '@views/User/AccueilPageUser.view.vue';
@@ -52,13 +53,12 @@ router.beforeEach((to,from) =>  {
   const niveauCnx = store.state.niveauCnx;
 
   if (requiredRole && requiredRole != niveauCnx) {
-    console.warn(`Unauthorized access attempted for route '${to.name}' by user with role ${niveauCnx}`);
-    return false;
+    return router.push({ name: "erreur" });
   }
 
-  if(requiredRole == undefined) {
-    return router.push({ name: NomPages.erreur });;
-  }
+  // if(requiredRole == undefined) {
+  //   return router.push({ name: NomPages.erreur });
+  // }
 })
 
 export default router
