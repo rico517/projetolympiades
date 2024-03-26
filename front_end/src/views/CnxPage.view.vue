@@ -46,6 +46,10 @@ export default {
             mdpVisible: false,
         }
     },
+    mounted(){
+        // Definir le niveau de connexion de l'utilisateur a zero
+        this.$store.commit('setNiveauCnx',0);
+    },
     methods: {
         logIn(){
             // Erreur si l'identifiant n'est pas entre
