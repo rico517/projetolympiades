@@ -2,10 +2,12 @@
 import DataServices from "../../services/PasserelleJson.services";
 import Jeu from '../../classes/Jeu.class';
 import Regle from '../regles/regles';
+import NomPages from "../../enums/NomPages.enum";
 </script>
 
 <template>
     <div id="container">
+        <router-link id="boutonRetour" :to="{name: NomPages.jeuxAdmin}"><img src="../img/chevron-left-grey.svg"></router-link>
         <div id="contentContainer">
             <h1> {{ leJeu.libelle }}</h1>
             <p id="infosHolder">
@@ -63,7 +65,26 @@ export default {
     width:83%;
     overflow-y: scroll;
 }
-
+#boutonRetour{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position:relative;
+    top:2rem;
+    left:0;
+    width:6rem;
+    height:6rem;
+    transition: 0.3s ease;
+    box-shadow: 0 0 0.5rem #555555;
+}
+#boutonRetour:hover {
+    cursor: pointer;
+    box-shadow: 0 0 1rem #555555;
+}
+#boutonRetour img{
+    height: 100%;
+}
     #contentContainer {
         display: flex;
         flex-direction: column;
