@@ -99,30 +99,31 @@ export default {
             border-radius: 1rem;
             background-color: #E7191F;
             color:whitesmoke;
-            font-size: 5rem;
+            font-size: 8rem;
         }
 
     #infosHolder {
         display: flex;
         justify-content: center;
-        text-align: center;
+        text-align: justify;
         padding:0.5rem 3rem 0.5rem 3rem;
-        margin: 5rem 0 5rem 0;
+        margin: 0 0 5rem 0;
         border-radius: 1rem;
-        font-size: 2rem;
+        font-size: 4rem;
         box-shadow: 0 0 1rem #AAAAAA;
-        line-height: 3rem;
+        line-height: 6rem;
     }
 
     #reglesHolder{
         display: flex;
         justify-content: center;
-        width:90%;
-        margin: 5rem 0 5rem 0;
+        width:80%;
+        margin: 0 0 5rem 0;
         padding: 2rem 2rem 2rem 2rem;
         box-shadow: 0 0 1rem #AAAAAA;
         border-radius: 1rem;
-        font-size: 2rem;
+        font-size: 3.5rem;
+        line-height: 5rem;
         box-sizing: border-box;
     }
 
