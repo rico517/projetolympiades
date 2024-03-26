@@ -62,7 +62,6 @@ export default {
                 this.errMsg = "Veuillez saisir un mot de passe";
                 return;
             }
-
             // Recuperer l'utilisateur 
             DataServices.getUnUtilisateur(this.pseudo,this.mdp)
             .then((response) => {

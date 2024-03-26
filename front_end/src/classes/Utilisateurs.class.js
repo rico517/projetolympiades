@@ -12,22 +12,22 @@ export default class Utilisateur{
     }
 
     // Recuperer l'id
-    get id(){return this.id;}
+    get id(){return this._id;}
     // Modifier l'id
-    set id(nouveauId){this.id = nouveauId;}
+    set id(nouveauId){this._id = nouveauId;}
 
     // Recuperer l'identifiant
-    get identifiant(){return this.identifiant;}
+    get identifiant(){return this._identifiant;}
     // Modifier l'identifiant
-    set identifiant(nouveauIdentifiant){this.identifiant = nouveauIdentifiant;}
+    set identifiant(nouveauIdentifiant){this._identifiant = nouveauIdentifiant;}
 
     // Recuperer le mot de passe
-    get mdp(){return this.mdp;}
+    get mdp(){return this._mdp;}
     // Modifier le mot de passe
-    set mdp(nouveauMdp){this.mdp = nouveauMdp;}
+    set mdp(nouveauMdp){this._mdp = nouveauMdp;}
 
     // Recuperer le niveau de connexion
-    get niveauCnx(){return this.niveauCnx;}
+    get niveauCnx(){return this._niveauCnx;}
     // Modifier le niveau de connexion
-    set niveauCnx(nouveauNiveauCnx){this.niveauCnx = nouveauNiveauCnx;}
+    set niveauCnx(nouveauNiveauCnx){this._niveauCnx = nouveauNiveauCnx;}
 }

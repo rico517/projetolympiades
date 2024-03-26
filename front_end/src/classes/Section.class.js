@@ -12,22 +12,22 @@ export default class Section{
     }
 
     // Recuperer l'id
-    get id(){return this.id;}
+    get id(){return this._id;}
     // Modifier l'id
-    set id(nouveauId){this.id = nouveauId;}
+    set id(nouveauId){this._id = nouveauId;}
 
     // Recuperer le nom
-    get nom(){return this.nom;}
+    get nom(){return this._nom;}
     // Modifier le nom
-    set nom(nouveauNom){this.nom = nouveauNom;}
+    set nom(nouveauNom){this._nom = nouveauNom;}
 
     // Recuperer le score total
-    get scoreTotal(){return this.scoreTotal;}
+    get scoreTotal(){return this._scoreTotal;}
     // Modifier le score total
-    set scoreTotal(nouveauScoreTotal){this.scoreTotal = nouveauScoreTotal;}
+    set scoreTotal(nouveauScoreTotal){this._scoreTotal = nouveauScoreTotal;}
     
     // Recuperer la couleur
-    get couleur(){return this.couleur;}
+    get couleur(){return this._couleur;}
     // Modifier la couleur
-    set couleur(nouveauCouleur){this.couleur = nouveauCouleur;}
+    set couleur(nouveauCouleur){this._couleur = nouveauCouleur;}
 }
