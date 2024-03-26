@@ -26,6 +26,7 @@ export default {
         }
     },
     mounted(){
+        console.log(this.currentPage);
         const btnActive = document.getElementById(this.currentPage);
         btnActive.classList.remove('bhBtns');
         btnActive.classList.add('active');

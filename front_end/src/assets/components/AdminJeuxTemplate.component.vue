@@ -1,25 +1,28 @@
 <script setup>
 import DataServices from "../../services/PasserelleJson.services";
+import Jeu from '../../classes/Jeu.class.ts';
 </script>
 
 <template>
     <div id="container">
-        {{ jeu }}
+        {{ idJeu }} 
     </div>
 </template>
 
 <script>
 export default {
     props:{
-        jeu: { // Exemple : Petit bac => petitBac
-            type: String,
+        idJeu: {
+            type: Number,
             required: true
         }
     },
     data() {
         return {}
     },
-    mounted() {},
+    mounted() {
+
+    },
     methods: {},
 }
 </script>
