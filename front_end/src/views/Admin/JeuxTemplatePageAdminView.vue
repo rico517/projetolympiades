@@ -2,6 +2,7 @@
 import TypePages from '../../enums/TypePages.enum';
 import AdminMenuComponent from '../../assets/components/AdminMenu.component.vue';
 import AdminJeuxTemplateComponent from '../../assets/components/AdminJeuxTemplate.component.vue';
+
 /*
 Appel du header
 Appel de AdminMenuComponent "landscape" lorsque l'ecran est en mode PC
@@ -12,14 +13,20 @@ Appel de AdminMenuComponent "portrait" lorsque l'ecran est en mode TEL
 
 <template>
     <div id="contentContainer">
-        <AdminMenuComponent :currentPage=TypePages.accueil v-if="isLandscape"/>
-        <AdminJeuxTemplateComponent jeu="hop"/>
+        <AdminMenuComponent :currentPage=TypePages.jeux v-if="isLandscape"/>
+        <AdminJeuxTemplateComponent :idJeu="idJeu"/>
     </div>
     <AdminMenuComponent :currentPage=TypePages.accueil v-if="isPortrait"/>
 </template>
 
 <script>
 export default {
+    props:{
+        idJeu:{
+            type:Number,
+            required:true,
+        }
+    },
     data() {
         return {
             isPortrait: false,

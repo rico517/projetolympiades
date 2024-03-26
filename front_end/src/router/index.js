@@ -35,7 +35,7 @@ const router = createRouter({
       {path: '/equipes-admin',name: NomPages.equipesAdmin,component: EquipesPageAdmin, meta: {requiredRole: roles.ADMIN,},},
       {path: '/planning-admin',name: NomPages.planningAdmin,component: PlanningPageAdmin, meta: {requiredRole: roles.ADMIN,},},
       {path: '/classement-admin',name: NomPages.classementAdmin,component: ClassementPageAdmin, meta: {requiredRole: roles.ADMIN,},},
-      {path: '/jeu-template',name: NomPages.jeuxTemplateAdmin,component: JeuxTemplatePageAdmin, meta: {requiredRole: roles.ADMIN,},}, // page template des jeux
+      {path: '/jeu-template/:idJeu',name: NomPages.jeuxTemplateAdmin,component: JeuxTemplatePageAdmin, meta: {requiredRole: roles.ADMIN,}, props:true}, // page template des jeux
       
       // Routes User
       {path: '/accueil-user',name: NomPages.accueilUser,component: AccueilPageUser, meta: {requiredRole: roles.USER,},},
