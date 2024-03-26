@@ -1,7 +1,7 @@
 <script setup>
 import DataServices from "../../services/PasserelleJson.services";
 import Jeu from '../../classes/Jeu.class';
-import Regle from '../regles/regles';
+import Regles from '../regles/regles';
 import NomPages from "../../enums/NomPages.enum";
 </script>
 
@@ -15,7 +15,7 @@ import NomPages from "../../enums/NomPages.enum";
                 Type de jeu : {{ leJeu.typeJeu }}
             </p>
             <p id="reglesHolder">
-                Règles du jeu appelées depuis le fichier
+                {{Regles.getUneRegle(leJeu.id)}}
             </p>
         </div>
     </div>
@@ -31,7 +31,7 @@ export default {
     },
     data() {
         return {
-            leJeu: Jeu // Initialisez le jeu à null pour éviter des erreurs lors de son chargement
+            leJeu: Jeu // Initialisez le jeu a null pour éviter des erreurs lors de son chargement
         }
     },
     mounted() {
@@ -42,10 +42,10 @@ export default {
             DataServices.getUnJeu(idJeu)
             .then(response => {
                 const jeu = response.data[0]
-                // Assignez le jeu à this.leJeu pour le rendre disponible dans le template
+                // Assignez le jeu a this.leJeu pour le rendre disponible dans le template
                 this.leJeu = new Jeu(jeu.id,jeu.libelle,jeu.regles,jeu.nbPoints,jeu.typeJeu);
 
-                console.log(Regle.getUneRegle(jeu.id))
+                // Regles.updateUneRegle(this.leJeu.id,"");
             })
             .catch(e => {
                 console.log(e);
@@ -119,10 +119,11 @@ export default {
         justify-content: center;
         width:90%;
         margin: 5rem 0 5rem 0;
-        padding: 2rem 0 2rem 0;
+        padding: 2rem 2rem 2rem 2rem;
         box-shadow: 0 0 1rem #AAAAAA;
         border-radius: 1rem;
         font-size: 2rem;
+        box-sizing: border-box;
     }
 
     
