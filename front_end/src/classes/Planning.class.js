@@ -1,8 +1,6 @@
 /*
 Autheur : Julien Demogue
 */
-import Jeu from './Jeu.class';
-
 export default class Planning{
     // Constructeur de la classe
     constructor(id,horaire,jeu){

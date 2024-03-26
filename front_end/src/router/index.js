@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import store from '../store';
 import NomPages from '../enums/NomPages.enum';
 import CnxPage from '@views/CnxPage.view.vue';
-import ErrorPage from '@views/Error.view.vue';
+import ErreurPage from '@views/Erreur.view.vue';
 
 // Imports Admin
 import AccueilPageAdmin from '@views/Admin/AccueilPageAdmin.view.vue';
@@ -19,6 +19,7 @@ import EquipesPageUser from '@views/User/EquipesPageUser.view.vue';
 import PlanningPageUser from '@views/User/PlanningPageUser.view.vue';
 import ClassementPageUser from '@views/User/ClassementPageUser.view.vue';
 
+// Roles que peut posseder un utilisateur
 const roles = {
   ADMIN: 2,
   USER: 1,
@@ -44,29 +45,30 @@ const router = createRouter({
       {path: '/planning-user',name: NomPages.planningUser,component: PlanningPageUser, meta: {requiredRole: roles.USER,},},
       {path: '/classement-user',name: NomPages.classementUser,component: ClassementPageUser, meta: {requiredRole: roles.USER,},},
 
-      {path: '/erreur',name: NomPages.erreur,component: ErrorPage,},
+      {path: '/:pathMatch(.*)*',name: NomPages.erreur ,component: ErreurPage,},
   ]
 });
 
+// Parametrer les changements de pages
 router.beforeEach((to,from) =>  {
   const requiredRole = to.meta.requiredRole;
   const niveauCnx = store.state.niveauCnx;
-console.log(niveauCnx);
+
+  // Detecter si l'utilisateur essaie de se rendre sur une page ou il n'est pas autorise
   if (requiredRole && requiredRole != niveauCnx) {
+    // Rediriger un simple utilisateur 
     if(niveauCnx == 1){
       return router.push({ name: NomPages.accueilUser });
     } 
+    // Rediriger un admin
     else if (niveauCnx == 2){
       return router.push({ name: NomPages.accueilAdmin });
     }
-    // else if (requiredRole == 0){
-    //   return router.push({ name: NomPages.connexion });
-    // }   
+    // Rediriger un utilisateur non connecte
+    else if (niveauCnx == 0){
+      return router.push({ name: NomPages.connexion });
+    }   
   }
-
-  // if(requiredRole == undefined) {
-  //   return router.push({ name: NomPages.erreur });
-  // }
 })
 
 export default router

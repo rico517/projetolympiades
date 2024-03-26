@@ -12,6 +12,6 @@ enum NomPages{
     equipesUser = "equipes-user",
     planningUser = "planning-user",
     classementUser = "classement-user",
-    error = "error"
+    erreur = "erreur"
 }
 export default NomPages;
