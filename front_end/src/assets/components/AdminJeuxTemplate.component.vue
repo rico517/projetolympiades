@@ -1,6 +1,7 @@
 <script setup>
 import DataServices from "../../services/PasserelleJson.services";
-import Jeu from '../../classes/Jeu.class.ts';
+import Jeu from '../../classes/Jeu.class';
+import Regle from '../regles/regles';
 </script>
 
 <template>
@@ -41,6 +42,8 @@ export default {
                 const jeu = response.data[0]
                 // Assignez le jeu à this.leJeu pour le rendre disponible dans le template
                 this.leJeu = new Jeu(jeu.id,jeu.libelle,jeu.regles,jeu.nbPoints,jeu.typeJeu);
+
+                console.log(Regle.getUneRegle(jeu.id))
             })
             .catch(e => {
                 console.log(e);
