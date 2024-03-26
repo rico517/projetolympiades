@@ -48,17 +48,25 @@ const router = createRouter({
   ]
 });
 
-router.beforeEach((to,from) =>  {
-  const requiredRole = to.meta.requiredRole;
-  const niveauCnx = store.state.niveauCnx;
+// router.beforeEach((to,from) =>  {
+//   const requiredRole = to.meta.requiredRole;
+//   const niveauCnx = store.state.niveauCnx;
 
-  if (requiredRole && requiredRole != niveauCnx) {
-    return router.push({ name: "erreur" });
-  }
+//   if (requiredRole && requiredRole != niveauCnx) {
+//     if(requiredRole == 1){
+//       return router.push({ name: NomPages.accueilUser });
+//     } 
+//     else if (requiredRole == 2){
+//       return router.push({ name: NomPages.accueilAdmin });
+//     }
+//     else if (requiredRole == 0){
+//       return router.push({ name: NomPages.connexion });
+//     }   
+//   }
 
-  // if(requiredRole == undefined) {
-  //   return router.push({ name: NomPages.erreur });
-  // }
-})
+//   // if(requiredRole == undefined) {
+//   //   return router.push({ name: NomPages.erreur });
+//   // }
+// })
 
 export default router
