@@ -1,7 +1,6 @@
 <script setup>
 import DataServices from "../../services/PasserelleJson.services";
 import Jeu from '../../classes/Jeu.class';
-import Regles from '../regles/regles';
 import NomPages from "../../enums/NomPages.enum";
 </script>
 
@@ -15,7 +14,7 @@ import NomPages from "../../enums/NomPages.enum";
                 Type de jeu : {{ leJeu.typeJeu }}
             </p>
             <p id="reglesHolder">
-                {{Regles.getUneRegle(leJeu.id)}}
+                {{this.laRegle}}
             </p>
         </div>
     </div>
@@ -31,11 +30,13 @@ export default {
     },
     data() {
         return {
-            leJeu: Jeu // Initialisez le jeu a null pour éviter des erreurs lors de son chargement
+            leJeu: Jeu, // Initialisez le jeu a null pour éviter des erreurs lors de son chargement
+            laRegle: String
         }
     },
     mounted() {
         this.getLeJeu(this.idJeu); // Appelez la fonction getLeJeu() avec this.idJeu comme paramètre
+        this.getLaRegle(this.idJeu); 
     },
     methods: {
         getLeJeu(idJeu){
@@ -44,9 +45,22 @@ export default {
                 const jeu = response.data[0]
                 // Assignez le jeu a this.leJeu pour le rendre disponible dans le template
                 this.leJeu = new Jeu(jeu.id,jeu.libelle,jeu.regles,jeu.nbPoints,jeu.typeJeu);
-
-                // Regles.updateUneRegle(this.leJeu.id,"");
             })
+            .catch(e => {
+                console.log(e);
+            });
+        },
+        getLaRegle(idJeu){
+            DataServices.getUneRegle(idJeu)
+            .then(response => {
+                this.laRegle = response.data
+            })
+            .catch(e => {
+                console.log(e);
+            });
+        },
+        updateLaRegle(idJeu,newRegle){
+            DataServices.updateUneRegle(idJeu,newRegle)
             .catch(e => {
                 console.log(e);
             });
@@ -69,12 +83,12 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 1rem;
     position:relative;
     top:2rem;
     left:0;
-    width:6rem;
-    height:6rem;
+    width:8rem;
+    height:8rem;
     transition: 0.3s ease;
     box-shadow: 0 0 0.5rem #555555;
 }
@@ -125,6 +139,7 @@ export default {
         font-size: 3.5rem;
         line-height: 5rem;
         box-sizing: border-box;
+        text-align: justify;
     }
 
     

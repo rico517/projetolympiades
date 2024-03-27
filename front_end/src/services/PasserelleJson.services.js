@@ -29,6 +29,14 @@ class DataService{
         return http.get("/GetUneSection/" + id);
     }
 
+    getUneRegle(id){
+        return http.get("/GetUneRegle/" + id);
+    }
+
+    updateUneRegle(id,newRegle){
+        return http.get("/UpdateUneRegle/" + id + "/" + newRegle);
+    }
+
     getUnUtilisateur(identifiant, mdp){
         return http.get("/GetUnUtilisateur/" + identifiant + "/" + mdp);
     }

@@ -27,6 +27,9 @@ import GetEquipesPlanning from "../controllers/GetEquipesPlanning.controller.js"
 
 import GetToutesLesHoraires from "../controllers/GetToutesLesHoraires.controller.js";
 
+import GetUneRegle from "../controllers/GetUneRegle.controller.js";
+import UpdateUneRegle from "../controllers/UpdateUneRegle.controller.js";
+
 // Initialisation du router
 const router = express.Router();
 
@@ -57,6 +60,10 @@ router.get("/GetEquipesPlanning/:id", GetEquipesPlanning);
 
 // Routes concernant les horaires
 router.get("/GetToutesLesHoraires", GetToutesLesHoraires);
+
+// Routes concernant les regles
+router.get("/GetUneRegle/:id", GetUneRegle); 
+router.get("/UpdateUneRegle/:id/:newRegle", UpdateUneRegle); 
 
 // Exportation du router
 export default router;
