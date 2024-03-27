@@ -18,7 +18,6 @@ DROP TABLE IF EXISTS Horaires;
 CREATE TABLE Jeux (
   id INT(2) PRIMARY KEY AUTO_INCREMENT,
   libelle VARCHAR(30) NOT NULL,
-  regles VARCHAR(30) NOT NULL,
   nbPoints INT(2) NOT NULL,
   typeJeu VARCHAR(20) NOT NULL
 );
@@ -65,22 +64,22 @@ CREATE TABLE Horaires (
 );
 
 -- Remplissage de données
-INSERT INTO Jeux (id, libelle, regles, nbPoints, typeJeu) VALUES
-(1, 'Petit bac', 'regles.txt', 10, '1v1'),
-(2, 'Tir à la corde', 'regles.txt', 10, '1v1'),
-(3, 'Parcours', 'regles.txt', 10, '1v1'),
-(4, 'Quizz Musical', 'regles.txt', 10, '1v1'),
-(5, 'Balle au prisonnier', 'regles.txt', 10, '1v1'),
-(6, 'Steeplechase', 'regles.txt', 10, '1v1'),
-(7, 'Chamboultout', 'regles.txt', 10, '1v1'),
-(8, 'Baby-foot humain', 'regles.txt', 10, '1v1'),
-(9, 'Bouteilles percées', 'regles.txt', 10, '1v1'),
-(10, 'Mémory', 'regles.txt', 10, '1v1'),
-(11, 'Balayette vélo', 'regles.txt', 10, '1v1'),
-(12, 'Planche à sacs', 'regles.txt', 10, '1v1'),
-(13, 'Tour du monde', 'regles.txt', 10, '1v1'),
-(14, 'Tour de Fröbel', 'regles.txt', 10, 'coop'),
-(15, 'Béret', 'regles.txt', 10, '1v1v1v1');
+INSERT INTO Jeux (id, libelle, nbPoints, typeJeu) VALUES
+(1, 'Petit bac', 10, '1v1'),
+(2, 'Tir à la corde', 10, '1v1'),
+(3, 'Parcours', 10, '1v1'),
+(4, 'Quizz Musical', 10, '1v1'),
+(5, 'Balle au prisonnier', 10, '1v1'),
+(6, 'Steeplechase', 10, '1v1'),
+(7, 'Chamboultout', 10, '1v1'),
+(8, 'Baby-foot humain', 10, '1v1'),
+(9, 'Bouteilles percées', 10, '1v1'),
+(10, 'Mémory', 10, '1v1'),
+(11, 'Balayette vélo', 10, '1v1'),
+(12, 'Planche à sacs', 10, '1v1'),
+(13, 'Tour du monde', 10, '1v1'),
+(14, 'Tour de Fröbel', 10, 'coop'),
+(15, 'Béret', 10, '1v1v1v1');
 
 INSERT INTO Plannings (id, idHoraire, idJeu) VALUES
 (1, 1, 1),
