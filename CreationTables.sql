@@ -19,7 +19,8 @@ CREATE TABLE Jeux (
   id INT(2) PRIMARY KEY AUTO_INCREMENT,
   libelle VARCHAR(30) NOT NULL,
   nbPoints INT(2) NOT NULL,
-  typeJeu VARCHAR(20) NOT NULL
+  typeJeu VARCHAR(20) NOT NULL,
+  idUtilisateur INT(2) NOT NULL,
 );
 
 CREATE TABLE Plannings (
@@ -64,22 +65,22 @@ CREATE TABLE Horaires (
 );
 
 -- Remplissage de données
-INSERT INTO Jeux (id, libelle, nbPoints, typeJeu) VALUES
-(1, 'Petit bac', 10, '1v1'),
-(2, 'Tir à la corde', 10, '1v1'),
-(3, 'Parcours', 10, '1v1'),
-(4, 'Quizz Musical', 10, '1v1'),
-(5, 'Balle au prisonnier', 10, '1v1'),
-(6, 'Steeplechase', 10, '1v1'),
-(7, 'Chamboultout', 10, '1v1'),
-(8, 'Baby-foot humain', 10, '1v1'),
-(9, 'Bouteilles percées', 10, '1v1'),
-(10, 'Mémory', 10, '1v1'),
-(11, 'Balayette vélo', 10, '1v1'),
-(12, 'Planche à sacs', 10, '1v1'),
-(13, 'Tour du monde', 10, '1v1'),
-(14, 'Tour de Fröbel', 10, 'coop'),
-(15, 'Béret', 10, '1v1v1v1');
+INSERT INTO Jeux (id, libelle, nbPoints, typeJeu, idUtilisateur) VALUES
+(1, 'Petit bac', 10, '1v1',3),
+(2, 'Tir à la corde', 10, '1v1',4),
+(3, 'Parcours', 10, '1v1',5),
+(4, 'Quizz Musical', 10, '1v1',6),
+(5, 'Balle au prisonnier', 10, '1v1',7),
+(6, 'Steeplechase', 10, '1v1',8),
+(7, 'Chamboultout', 10, '1v1',9),
+(8, 'Baby-foot humain', 10, '1v1',10),
+(9, 'Bouteilles percées', 10, '1v1',11),
+(10, 'Mémory', 10, '1v1',12),
+(11, 'Balayette vélo', 10, '1v1',13),
+(12, 'Planche à sacs', 10, '1v1',14),
+(13, 'Tour du monde', 10, '1v1',15),
+(14, 'Tour de Fröbel', 10, 'coop',16),
+(15, 'Béret', 10, '1v1v1v1',1);
 
 INSERT INTO Plannings (id, idHoraire, idJeu) VALUES
 (1, 1, 1),
@@ -90,21 +91,21 @@ INSERT INTO Plannings (id, idHoraire, idJeu) VALUES
 
 INSERT INTO Utilisateurs (id, identifiant, mdp, niveauCnx) VALUES
 (1, 'viesco', 'adminviesco', 2),
-(2, 'Beret', 'ber7602', 1),
-(3, 'Petit bac', 'bac0921', 1),
-(4, 'Tir à la corde','tir8392', 1),
-(5, 'Parcours','parc1832', 1),
-(6, 'Quizz Musical','quiz7201', 1),
-(7, 'Balle au prisonnier','ball9021', 1),
-(8, 'Steeplechase','stee2024', 1),
-(9, 'Chamboultout', 'cham6165', 1),
-(10, 'Baby-foot humain','baby8129', 1),
-(11, 'Bouteilles percées','bout1982', 1),
-(12, 'Mémory','memo1680', 1),
-(13, 'Balayette vélo','bala1687', 1),
-(14, 'Planche à sacs','plan1735', 1),
-(15, 'Tour du monde','monde0012', 1),
-(16, 'Tour de Fröbel','frob2471', 1);
+(2, 'beret', 'ber7602', 1),
+(3, 'petitbac', 'bac0921', 1),
+(4, 'tircorde','tir8392', 1),
+(5, 'parcours','parc1832', 1),
+(6, 'quizzmusic','quiz7201', 1),
+(7, 'ballepriso','ball9021', 1),
+(8, 'steeple','stee2024', 1),
+(9, 'chambouletout', 'cham6165', 1),
+(10, 'babyfoot','baby8129', 1),
+(11, 'bouteilles','bout1982', 1),
+(12, 'memo','memo1680', 1),
+(13, 'balayelle','bala1687', 1),
+(14, 'planchesacs','plan1735', 1),
+(15, 'tourmonde','monde0012', 1),
+(16, 'tourfrobel','frob2471', 1);
 
 INSERT INTO Equipes (id, nom, score, idSections) VALUES
 (1, 'ASS 1', 0, 1),
