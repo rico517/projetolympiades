@@ -49,6 +49,7 @@ export default {
     mounted(){
         // Definir le niveau de connexion de l'utilisateur a zero
         this.$store.commit('setNiveauCnx',0);
+        this.$store.commit('setIdUtilisateur',-1);
     },
     methods: {
         logIn(){
@@ -70,6 +71,7 @@ export default {
 
                 // Enregistrer le niveau de connexion de l'utilisateur
                 this.$store.commit('setNiveauCnx',newUtilisateur.niveauCnx);
+                this.$store.commit('setIdUtilisateur',newUtilisateur.id);
 
                 // Envoyer l'utilisateur vers la page de score version admin si le niveau de connexion est 2
                 if(newUtilisateur.niveauCnx == 2){

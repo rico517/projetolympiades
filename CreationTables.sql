@@ -80,7 +80,7 @@ INSERT INTO Jeux (id, libelle, nbPoints, typeJeu, idUtilisateur) VALUES
 (12, 'Planche à sacs', 10, '1v1',14),
 (13, 'Tour du monde', 10, '1v1',15),
 (14, 'Tour de Fröbel', 10, 'coop',16),
-(15, 'Béret', 10, '1v1v1v1',1);
+(15, 'Béret', 10, '1v1v1v1',2);
 
 INSERT INTO Plannings (idHoraire, idJeu) VALUES
 ( 1, 1), -- horaire 1 = 10h00 

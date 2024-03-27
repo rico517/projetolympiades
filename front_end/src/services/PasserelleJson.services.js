@@ -21,6 +21,10 @@ class DataService{
         return http.get("/GetUnJeu/" + id);
     }
 
+    getUnJeuUtilisateur(idUtilisateur){
+        return http.get("/GetUnJeu/" + idUtilisateur);
+    }
+
     getUnPlanning(id){
         return http.get("/GetUnPlanning/" + id);
     }

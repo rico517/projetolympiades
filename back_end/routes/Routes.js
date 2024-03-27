@@ -11,6 +11,7 @@ import GetTouteLesEquipes from "../controllers/GetToutesLesEquipes.controller.js
 import AjouterScoreEquipe from "../controllers/AjouterScoreEquipe.controller.js";
 
 import GetUnJeu from "../controllers/GetUnJeu.controller.js";
+import GetUnJeuUtilisateur from "../controllers/GetUnJeuUtilisateur.controller.js";
 import GetTousLesJeux from "../controllers/GetTousLesJeux.controller.js";
 
 import GetUnPlanning from "../controllers/GetUnPlanning.controller.js";
@@ -40,6 +41,7 @@ router.get("/AjouterScoreEquipe/:id/:nombre", AjouterScoreEquipe);
 
 // Routes concernant les jeux
 router.get("/GetUnJeu/:id", GetUnJeu);
+router.get("/GetUnJeuUtilisateur/:idUtilisateur", GetUnJeuUtilisateur);
 router.get("/GetTousLesJeux", GetTousLesJeux);
 
 // Routes concernant les plannings
