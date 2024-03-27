@@ -44,7 +44,7 @@ export default {
             .then(response => {
                 const jeu = response.data[0]
                 // Assignez le jeu a this.leJeu pour le rendre disponible dans le template
-                this.leJeu = new Jeu(jeu.id,jeu.libelle,jeu.regles,jeu.nbPoints,jeu.typeJeu);
+                this.leJeu = new Jeu(jeu.id,jeu.libelle,jeu.regles,jeu.nbPoints,jeu.typeJeu,jeu.idUtilisateur);
             })
             .catch(e => {
                 console.log(e);

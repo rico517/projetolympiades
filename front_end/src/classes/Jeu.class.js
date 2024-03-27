@@ -3,12 +3,13 @@ Autheur : Eric Girard
 */
 
 export default class Jeu {
-    constructor(id, libelle, regles, nbPoints, typeJeu) {
+    constructor(id, libelle, regles, nbPoints, typeJeu, idUtilisateur) {
         this._id = id;
         this._libelle = libelle;
         this._regles = regles;
         this._nbPoints = nbPoints;
         this._typeJeu = typeJeu;
+        this._idUtilisateur = idUtilisateur;
     }
 
     // Getter pour l'ID
@@ -59,5 +60,15 @@ export default class Jeu {
     // Setter pour le type de jeu
     set typeJeu(nouveauTypeJeu) {
         this._typeJeu = nouveauTypeJeu;
+    }
+
+    // Getter pour l'id utilisateur'
+    get idUtilisateur() {
+        return this._idUtilisateur;
+    }
+
+    // Setter pour l'id utilisateur
+    set idUtilisateur(nouvelIdUtilisateur) { 
+        this._idUtilisateur = nouvelIdUtilisateur;
     }
 }
