@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import store from '../store';
 import NomPages from '../enums/NomPages.enum';
+import Roles from '../enums/Roles.enum';
 import CnxPage from '@views/CnxPage.view.vue';
 import ErreurPage from '@views/Erreur.view.vue';
 
@@ -19,31 +20,24 @@ import EquipesPageUser from '@views/User/EquipesPageUser.view.vue';
 import PlanningPageUser from '@views/User/PlanningPageUser.view.vue';
 import ClassementPageUser from '@views/User/ClassementPageUser.view.vue';
 
-// Roles que peut posseder un utilisateur
-const roles = {
-  ADMIN: 2,
-  USER: 1,
-  AFK: 0,
-};
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-      {path: '/',name: NomPages.connexion,component: CnxPage, meta: {requiredRole: roles.AFK,},},
+      {path: '/',name: NomPages.connexion,component: CnxPage, meta: {requiredRole: Roles.AFK,},},
       // Routes Admin
-      {path: '/accueil-admin',name: NomPages.accueilAdmin,component: AccueilPageAdmin, meta: {requiredRole: roles.ADMIN,},},
-      {path: '/jeux-admin',name: NomPages.jeuxAdmin,component: JeuxPageAdmin, meta: {requiredRole: roles.ADMIN,},},
-      {path: '/equipes-admin',name: NomPages.equipesAdmin,component: EquipesPageAdmin, meta: {requiredRole: roles.ADMIN,},},
-      {path: '/planning-admin',name: NomPages.planningAdmin,component: PlanningPageAdmin, meta: {requiredRole: roles.ADMIN,},},
-      {path: '/classement-admin',name: NomPages.classementAdmin,component: ClassementPageAdmin, meta: {requiredRole: roles.ADMIN,},},
-      {path: '/jeu-template/:idJeu',name: NomPages.jeuxTemplateAdmin,component: JeuxTemplatePageAdmin, meta: {requiredRole: roles.ADMIN,}, props:true}, // page template des jeux
+      {path: '/accueil-admin',name: NomPages.accueilAdmin,component: AccueilPageAdmin, meta: {requiredRole: Roles.ADMIN,},},
+      {path: '/jeux-admin',name: NomPages.jeuxAdmin,component: JeuxPageAdmin, meta: {requiredRole: Roles.ADMIN,},},
+      {path: '/equipes-admin',name: NomPages.equipesAdmin,component: EquipesPageAdmin, meta: {requiredRole: Roles.ADMIN,},},
+      {path: '/planning-admin',name: NomPages.planningAdmin,component: PlanningPageAdmin, meta: {requiredRole: Roles.ADMIN,},},
+      {path: '/classement-admin',name: NomPages.classementAdmin,component: ClassementPageAdmin, meta: {requiredRole: Roles.ADMIN,},},
+      {path: '/jeu-template/:idJeu',name: NomPages.jeuxTemplateAdmin,component: JeuxTemplatePageAdmin, meta: {requiredRole: Roles.ADMIN,}, props:true}, // page template des jeux
       
       // Routes User
-      {path: '/accueil-user',name: NomPages.accueilUser,component: AccueilPageUser, meta: {requiredRole: roles.USER,},},
-      {path: '/jeux-user',name: NomPages.jeuxUser,component: JeuxPageUser, meta: {requiredRole: roles.USER,},},
-      {path: '/equipes-user',name: NomPages.equipesUser,component: EquipesPageUser, meta: {requiredRole: roles.USER,},},
-      {path: '/planning-user',name: NomPages.planningUser,component: PlanningPageUser, meta: {requiredRole: roles.USER,},},
-      {path: '/classement-user',name: NomPages.classementUser,component: ClassementPageUser, meta: {requiredRole: roles.USER,},},
+      {path: '/accueil-user',name: NomPages.accueilUser,component: AccueilPageUser, meta: {requiredRole: Roles.USER,},},
+      {path: '/jeux-user',name: NomPages.jeuxUser,component: JeuxPageUser, meta: {requiredRole: Roles.USER,},},
+      {path: '/equipes-user',name: NomPages.equipesUser,component: EquipesPageUser, meta: {requiredRole: Roles.USER,},},
+      {path: '/planning-user',name: NomPages.planningUser,component: PlanningPageUser, meta: {requiredRole: Roles.USER,},},
+      {path: '/classement-user',name: NomPages.classementUser,component: ClassementPageUser, meta: {requiredRole: Roles.USER,},},
 
       {path: '/:pathMatch(.*)*',name: NomPages.erreur ,component: ErreurPage,},
   ]

@@ -1,9 +1,9 @@
 <script setup>
-
+import Roles from '../../enums/Roles.enum';
 </script>
 
 <template>
-  <div id="header">
+  <div id="headerAdmin" v-if="this.$route.meta.requiredRole == Roles.ADMIN">
     <div id="container">
       <button id="btnDropDown"><img src="../img/menu_icon.svg"></button>
       <img src="../img/logo_olympiaDLS.png" />
@@ -14,6 +14,9 @@
 
 <script>
 export default {
+  props:{
+  
+  },  
   data() {
     return {
       heureSysteme: ''
@@ -24,6 +27,7 @@ export default {
     this.updateHeure();
     // Mettre à jour l'heure toutes les 5 secondes
     setInterval(this.updateHeure, 5000);
+    console.log()
   },
   methods: {
     updateHeure() {
@@ -39,7 +43,15 @@ export default {
 
 <style scoped>
   
-  #header{
+  #headerAdmin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height:8vh;
+    background-color: #e7191f;
+  }
+  #headerUser{
     display: flex;
     justify-content: center;
     align-items: center;
